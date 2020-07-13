@@ -1,5 +1,4 @@
-from math import sqrt
-from math import floor
+from math import sqrt, floor
 
 def primes(upper):
     prime_list = [True] * upper
@@ -11,3 +10,6 @@ def primes(upper):
             if i <= max_factor:
                 for j in range(i*i, upper, i):
                     prime_list[j] = False
+
+def prime_factors(number):
+    return (x for x in primes(number+1) if number % x == 0)
