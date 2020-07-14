@@ -12,4 +12,13 @@ def primes(upper):
                     prime_list[j] = False
 
 def prime_factors(number):
-    return (x for x in primes(number+1) if number % x == 0)
+    result = set()
+    current_factor = 2
+    while number > 1:
+        dividend, remainder = divmod(number, current_factor)
+        if remainder == 0:
+            number = dividend
+            result.add(current_factor)
+            current_factor = current_factor - 1
+        current_factor = current_factor + 1
+    return result
