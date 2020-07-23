@@ -3,4 +3,5 @@ from primes import prime_factors
 def p3(number):
     return max(prime_factors(number))
 
-print(p3(600851475143))
+if __name__ == "__main__":
+    print(p3(600851475143))
