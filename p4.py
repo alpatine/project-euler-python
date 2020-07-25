@@ -10,3 +10,8 @@ def p4(digits):
                     max_palindrome = product
     
     return max_palindrome
+
+if __name__ == "__main__":
+    print(p4(2))
+    print(p4(3))
+    
