@@ -1,4 +1,4 @@
-from math import sqrt, floor
+from math import sqrt, floor, log
 
 def primes(upper):
     prime_list = [True] * upper
@@ -22,3 +22,7 @@ def prime_factors(number):
             current_factor = current_factor - 1
         current_factor = current_factor + 1
     return result
+
+def estimate_nth_prime(n):
+    # As n gets larger, the nth prime ~ n * ln(n)
+    return n * log(n)
