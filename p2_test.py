@@ -1,7 +1,7 @@
 import unittest
 from p2 import p2
 
-class P2Test(unittest.TestCase):
+class P2_Test(unittest.TestCase):
     def test_p2_90(self):
         self.assertEqual(p2(90), 44)
     

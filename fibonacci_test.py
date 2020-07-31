@@ -1,7 +1,7 @@
 import unittest
 from fibonacci import fibonacci
 
-class FibonacciTest(unittest.TestCase):
+class Fibonacci_Test(unittest.TestCase):
     def test_fibonacci_0(self):
         self.assertEqual(list(fibonacci(0)), [])
     

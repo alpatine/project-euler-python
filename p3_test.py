@@ -1,7 +1,7 @@
 import unittest
 from p3 import p3
 
-class P3Test(unittest.TestCase):
+class P3_Test(unittest.TestCase):
     def test_p3_13195(self):
         self.assertEqual(p3(13195), 29)
     
