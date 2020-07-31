@@ -1,4 +1,5 @@
 from math import sqrt, floor, log
+from itertools import islice
 
 def primes(upper):
     prime_list = [True] * upper
@@ -25,4 +26,11 @@ def prime_factors(number):
 
 def estimate_nth_prime(n):
     # As n gets larger, the nth prime ~ n * ln(n)
-    return n * log(n)
+    return int(n * log(n))
+
+def nth_prime(n):
+    if n == 1: return 2
+    if n == 2: return 3
+    estimate = estimate_nth_prime(n)
+    #return list(primes(2 * estimate))
+    return list(islice(primes(2 * estimate), n - 1, n))[0]
