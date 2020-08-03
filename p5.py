@@ -1,7 +1,7 @@
 from primes import primes
 from math import floor, log, prod
 
-def p5(upper):
+def p5(upper: int) -> int:
     return prod(prime ** floor(log(upper, prime)) for prime in primes(upper))
 
 if __name__ == '__main__':

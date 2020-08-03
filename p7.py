@@ -1,6 +1,6 @@
 from primes import nth_prime
 
-def p7(n):
+def p7(n: int) -> int:
     return nth_prime(n)
 
 if __name__ == '__main__':

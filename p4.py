@@ -1,4 +1,4 @@
-def p4(digits):
+def p4(digits: int) -> int:
     start, stop = 10 ** digits - 1, 10 ** (digits - 1) - 1
     max_palindrome = 0
     for a in range(start, stop, -1):
