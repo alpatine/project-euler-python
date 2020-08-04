@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase
 from p10 import p10
 
-class P10_Test(unittest.TestCase):
+class P10_Test(TestCase):
     def test_p10_10(self):
         self.assertEqual(p10(10), 17)
     

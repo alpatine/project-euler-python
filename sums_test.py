@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase
 from sums import sum_numbers, sum_square_numbers
 
-class Sum_Numbers_Test(unittest.TestCase):
+class Sum_Numbers_Test(TestCase):
     def test_sum_numbers_1(self):
         self.assertEqual(sum_numbers(1), 0)
     
@@ -14,7 +14,7 @@ class Sum_Numbers_Test(unittest.TestCase):
     def test_sum_numbers_11(self):
         self.assertEqual(sum_numbers(11), 55)
 
-class Sum_Square_Numbers_Test(unittest.TestCase):
+class Sum_Square_Numbers_Test(TestCase):
     def test_sum_square_numbers_1(self):
         self.assertEqual(sum_square_numbers(1), 0)
     

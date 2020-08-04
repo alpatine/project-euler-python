@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase
 from pythagoras import calculate_next_triplets
 
-class Pythagoras_Test(unittest.TestCase):
+class Pythagoras_Test(TestCase):
     def test_calculate_next_triplets_3_4_5(self):
         expected_result = ((5, 12, 13), (21, 20, 29), (15, 8, 17))
         self.assertEqual(calculate_next_triplets((3, 4, 5)), expected_result)

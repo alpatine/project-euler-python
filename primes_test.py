@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase
 from primes import primes, prime_factors, nth_prime
 
-class Primes_Test(unittest.TestCase):
+class Primes_Test(TestCase):
     def test_primes_0(self):
         self.assertEqual(list(primes(0)), [])
     
@@ -17,7 +17,7 @@ class Primes_Test(unittest.TestCase):
     def test_primes_10(self):
         self.assertEqual(list(primes(10)), [2, 3, 5, 7])
 
-class Prime_Factors_Test(unittest.TestCase):
+class Prime_Factors_Test(TestCase):
     def test_prime_factors_1(self):
         self.assertEqual(list(prime_factors(1)), [])
     
@@ -33,7 +33,7 @@ class Prime_Factors_Test(unittest.TestCase):
     def test_prime_factors_20(self):
         self.assertEqual(list(prime_factors(20)), [2, 5])
 
-class Nth_Prime_Test(unittest.TestCase):
+class Nth_Prime_Test(TestCase):
     def test_nth_prime_1(self):
         self.assertEqual(nth_prime(1), 2)
     
