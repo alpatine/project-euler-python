@@ -1,6 +1,6 @@
 from math import sqrt, floor, log
 from itertools import islice
-from typing import Iterator, Set
+from typing import Iterator, Set, List
 
 def primes(upper: int) -> Iterator[int]:
     """Generate the prime numbers.
@@ -27,13 +27,35 @@ def prime_factors(number: int) -> Set[int]:
     result = set()
     current_factor = 2
     while number > 1:
-        dividend, remainder = divmod(number, current_factor)
+        quotient, remainder = divmod(number, current_factor)
         if remainder == 0:
-            number = dividend
+            number = quotient
             result.add(current_factor)
             current_factor = current_factor - 1
         current_factor = current_factor + 1
     return result
+
+def count_divisors(number: int, prime_numbers: Iterator[int] = None) -> int:
+    """Count the divisors of number.
+
+    By default a list of prime numbers is generated on each use of this function.
+    A pre-generated custom list of primes can be supplied via the optional
+    prime_numbers parameter.
+    """
+    if prime_numbers is None:
+        prime_numbers = primes(number + 1)
+
+    divisors = 1
+    for prime in prime_numbers:
+        factor = prime
+        prime_power = 1
+        while factor <= number:
+            if number % factor == 0:
+                factor *= prime
+                prime_power += 1
+            else: break
+        divisors *= prime_power
+    return divisors
 
 def estimate_nth_prime(n: int) -> int:
     """Estimate the n'th prime number.
