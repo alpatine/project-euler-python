@@ -1,4 +1,3 @@
-from itertools import count
 from primes import count_divisors, primes
 
 def p12(divisor_target: int) -> int:
