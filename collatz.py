@@ -1,9 +1,17 @@
 collatz_lengths = {}
 
 def reset_cached_lengths():
+    """Clear all known collatz lengths"""
     collatz_lengths.clear()
 
 def collatz_length(number: int) -> int:
+    """Calculate the collatz sequence length for a number
+
+    All values that are visited while generating the sequence
+    will have their sequence length cached. This allows
+    for greatly improved performance with multiple use.
+    """
+
     length_if_known = collatz_lengths.get(number)
     if length_if_known is not None: return length_if_known
 
