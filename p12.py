@@ -1,4 +1,4 @@
-from primes import count_divisors, primes
+from number_theory import count_divisors, primes
 
 def p12(divisor_target: int) -> int:
     prime_number_list = list(primes(1000))

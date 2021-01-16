@@ -1,5 +1,5 @@
 from unittest import TestCase
-from primes import primes, prime_factors, count_divisors, nth_prime
+from number_theory import primes, prime_factors, count_divisors, nth_prime
 
 class Primes_Test(TestCase):
     def test_primes_0(self):

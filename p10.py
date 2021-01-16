@@ -1,4 +1,4 @@
-from primes import primes
+from number_theory import primes
 
 def p10(upper: int) -> int:
     return sum(primes(upper))

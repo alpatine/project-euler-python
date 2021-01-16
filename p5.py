@@ -1,4 +1,4 @@
-from primes import primes
+from number_theory import primes
 from math import floor, log, prod
 
 def p5(upper: int) -> int:

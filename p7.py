@@ -1,4 +1,4 @@
-from primes import nth_prime
+from number_theory import nth_prime
 
 def p7(n: int) -> int:
     return nth_prime(n)

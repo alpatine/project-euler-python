@@ -1,4 +1,4 @@
-from primes import prime_factors
+from number_theory import prime_factors
 
 def p3(number: int) -> int:
     return max(prime_factors(number))
