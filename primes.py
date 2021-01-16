@@ -2,39 +2,6 @@ from math import sqrt, floor, log
 from itertools import islice
 from typing import Iterator, Set, List
 
-def primes(upper: int) -> Iterator[int]:
-    """Generate the prime numbers.
-
-    The sequence starts with 2 and continues until upper is reached.
-    The value upper is not included in the sequence.
-    """
-    prime_list = [True] * upper
-    max_factor = floor(sqrt(upper))
-
-    for i in range(2, upper):
-        if prime_list[i] == True:
-            yield i
-            if i <= max_factor:
-                for j in range(i*i, upper, i):
-                    prime_list[j] = False
-
-def prime_factors(number: int) -> Set[int]:
-    """Calculate the primes that will divide number.
-
-    Prime numbers with a power of zero are not included.
-    Prime numbers with a power greater than 1 are not repeated.
-    """
-    result = set()
-    current_factor = 2
-    while number > 1:
-        quotient, remainder = divmod(number, current_factor)
-        if remainder == 0:
-            number = quotient
-            result.add(current_factor)
-            current_factor = current_factor - 1
-        current_factor = current_factor + 1
-    return result
-
 def count_divisors(number: int, prime_numbers: Iterator[int] = None) -> int:
     """Count the divisors of number.
 
@@ -73,3 +40,36 @@ def nth_prime(n: int) -> int:
     estimate = estimate_nth_prime(n)
     #return list(primes(2 * estimate))
     return list(islice(primes(2 * estimate), n - 1, n))[0]
+
+def prime_factors(number: int) -> Set[int]:
+    """Calculate the primes that will divide number.
+
+    Prime numbers with a power of zero are not included.
+    Prime numbers with a power greater than 1 are not repeated.
+    """
+    result = set()
+    current_factor = 2
+    while number > 1:
+        quotient, remainder = divmod(number, current_factor)
+        if remainder == 0:
+            number = quotient
+            result.add(current_factor)
+            current_factor = current_factor - 1
+        current_factor = current_factor + 1
+    return result
+
+def primes(upper: int) -> Iterator[int]:
+    """Generate the prime numbers.
+
+    The sequence starts with 2 and continues until upper is reached.
+    The value upper is not included in the sequence.
+    """
+    prime_list = [True] * upper
+    max_factor = floor(sqrt(upper))
+
+    for i in range(2, upper):
+        if prime_list[i] == True:
+            yield i
+            if i <= max_factor:
+                for j in range(i*i, upper, i):
+                    prime_list[j] = False
