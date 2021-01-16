@@ -1,9 +1,5 @@
 collatz_lengths = {}
 
-def reset_cached_lengths():
-    """Clear all known collatz lengths"""
-    collatz_lengths.clear()
-
 def collatz_length(number: int) -> int:
     """Calculate the collatz sequence length for a number
 
@@ -38,3 +34,8 @@ def collatz_length(number: int) -> int:
         collatz_lengths[visited_number] = adjusted_length
 
     return length
+
+def reset_cached_lengths():
+    """Clear all known collatz lengths"""
+    collatz_lengths.clear()
+
