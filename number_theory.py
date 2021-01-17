@@ -1,6 +1,6 @@
 from math import sqrt, floor, log
 from itertools import islice
-from typing import Iterator, Set, List
+from typing import Iterator, Set, List, Dict
 
 def count_divisors(number: int, prime_numbers: Iterator[int] = None) -> int:
     """Count the divisors of number.
@@ -23,6 +23,19 @@ def count_divisors(number: int, prime_numbers: Iterator[int] = None) -> int:
             else: break
         divisors *= prime_power
     return divisors
+
+def divisor_sums_to(number: int) -> Dict[int, int]:
+    """Returns a dictionary of numbers with the sum of their proper divisors, stopping before number
+
+    Proper divisors of a number are the numbers less than that number that divide
+    evenly into it e.g. the proper divisors of 10 are: 1, 2, 5 and the sum is 8.
+    """
+    divisor_sums = {n: 0 for n in range(0, number)}
+    for n in range(1, number):
+        for multiple_of_n in range(2 * n, number, n):
+            divisor_sums[multiple_of_n] += n
+
+    return divisor_sums
 
 def estimate_nth_prime(n: int) -> int:
     """Estimate the n'th prime number.
