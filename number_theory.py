@@ -54,6 +54,32 @@ def nth_prime(n: int) -> int:
     #return list(primes(2 * estimate))
     return list(islice(primes(2 * estimate), n - 1, n))[0]
 
+def period_of_repeating_decimal(denominator: int) -> int:
+    """Calculate the period of the repeating decimal 1/denominator
+
+    If 1/denominator is not a repeating decimal the result is 0.
+    """
+    # Fact: If denominator == (2**a) * (5**b) * n where n > 1 and not
+    #       divisible by 2 or 5, then the period r is the smallest integer
+    #       such that 10**r is congruent to 1 (mod n)
+
+    # calculate n by dividing out powers of 2 and 5 from denominator
+    n = denominator
+    while (n % 2 == 0): n //= 2
+    while (n % 5 == 0): n //= 5
+
+    # if n == 1 then no repeating cycle
+    if n == 1: return 0 
+
+    remainder = n + 1   # not equal to 1, but congruent to 1 mod n
+    r = 0
+    while (remainder != 1):
+        remainder = (remainder * 10) % n
+        r += 1
+    
+    # r is the smallest integer such that 10**r congruent to 1 mod n
+    return r
+
 def prime_factors(number: int) -> Set[int]:
     """Calculate the primes that will divide number.
 

@@ -1,5 +1,6 @@
 from unittest import TestCase
-from number_theory import count_divisors, divisor_sums_to, nth_prime, prime_factors, primes
+from number_theory import count_divisors, divisor_sums_to, nth_prime, \
+    period_of_repeating_decimal, prime_factors, primes
 
 class Count_Divisors_Test(TestCase):
     def test_count_divisors_1(self):
@@ -50,6 +51,28 @@ class Nth_Prime_Test(TestCase):
     
     def test_nth_prime_6(self):
         self.assertEqual(nth_prime(6), 13)
+
+class Period_Of_Repeating_Decimal_Test(TestCase):
+    def test_1(self):
+        self.assertEqual(period_of_repeating_decimal(1), 0)
+
+    def test_2(self):
+        self.assertEqual(period_of_repeating_decimal(2), 0)
+    
+    def test_3(self):
+        self.assertEqual(period_of_repeating_decimal(3), 1)
+
+    def test_5(self):
+        self.assertEqual(period_of_repeating_decimal(5), 0)
+
+    def test_7(self):
+        self.assertEqual(period_of_repeating_decimal(7), 6)
+    
+    def test_20(self):
+        self.assertEqual(period_of_repeating_decimal(20), 0)
+
+    def test_30(self):
+        self.assertEqual(period_of_repeating_decimal(30), 1)
 
 class Prime_Factors_Test(TestCase):
     def test_prime_factors_1(self):
