@@ -1,6 +1,6 @@
 from unittest import TestCase
-from number_theory import count_divisors, divisor_sums_to, nth_prime, \
-    period_of_repeating_decimal, prime_factors, primes
+from number_theory import (count_divisors, divisor_sums_to, isPrime,
+    nth_prime, period_of_repeating_decimal, prime_factors, primes)
 
 class Count_Divisors_Test(TestCase):
     def test_count_divisors_1(self):
@@ -38,6 +38,25 @@ class Divisor_Sums_To_Test(TestCase):
         self.assertEqual(divisor_sums_to(11),
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
+
+class Is_Prime_Test(TestCase):
+    def test_1(self):
+        self.assertEqual(isPrime(1), False)
+        
+    def test_2(self):
+        self.assertEqual(isPrime(2), True)
+    
+    def test_19(self):
+        self.assertEqual(isPrime(19), True)
+    
+    def test_10(self):
+        self.assertEqual(isPrime(10), False)
+    
+    def test_10_coprime_true(self):
+        self.assertEqual(isPrime(10, [3, 7]), True)
+    
+    def test_10_coprime_false(self):
+        self.assertEqual(isPrime(10, [2, 3]), False)
 
 class Nth_Prime_Test(TestCase):
     def test_nth_prime_1(self):

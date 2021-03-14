@@ -46,6 +46,19 @@ def estimate_nth_prime(n: int) -> int:
     # As n gets larger, the nth prime ~ n * ln(n)
     return int(n * log(n))
 
+def isPrime(n: int, list_of_factors: List[int] = None) -> bool:
+    """Determine if a number n is prime (or coprime to a list of factors)"""
+    if n < 2: return False
+    max_factor = floor(sqrt(n))
+    if list_of_factors is None:
+        list_of_factors = primes(max_factor)
+    
+    for factor in list_of_factors:
+        if n % factor == 0:
+            return False
+    
+    return True
+
 def nth_prime(n: int) -> int:
     """Calculate the n'th prime number."""
     if n == 1: return 2
