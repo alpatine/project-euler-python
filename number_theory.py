@@ -54,6 +54,7 @@ def isPrime(n: int, list_of_factors: List[int] = None) -> bool:
         list_of_factors = primes(max_factor)
     
     for factor in list_of_factors:
+        if factor > max_factor: break
         if n % factor == 0:
             return False
     
