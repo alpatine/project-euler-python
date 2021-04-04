@@ -1,5 +1,5 @@
 from unittest import TestCase
-from number_theory import (count_divisors, divisor_sums_to, is_prime,
+from number_theory import (count_divisors, divisor_sums_to, is_pandigital, is_prime,
     nth_prime, period_of_repeating_decimal, prime_factors, primes)
 
 class Count_Divisors_Test(TestCase):
@@ -38,6 +38,19 @@ class Divisor_Sums_To_Test(TestCase):
         self.assertEqual(divisor_sums_to(11),
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
+
+class Is_Pandigital_Test(TestCase):
+    def test_123456789(self):
+        self.assertEqual(is_pandigital('123456789'), True)
+    
+    def test_empty(self):
+        self.assertEqual(is_pandigital(''), False)
+    
+    def test_635241879(self):
+        self.assertEqual(is_pandigital('635241879'), True)
+    
+    def test_12345(self):
+        self.assertEqual(is_pandigital('12345'), False)
 
 class Is_Prime_Test(TestCase):
     def test_1(self):

@@ -46,7 +46,19 @@ def estimate_nth_prime(n: int) -> int:
     # As n gets larger, the nth prime ~ n * ln(n)
     return int(n * log(n))
 
-def isPrime(n: int, list_of_factors: List[int] = None) -> bool:
+def is_pandigital(n: str) -> bool:
+    """Determines if a number n is pandigital.
+
+    Checks that each digit from 1 to 9 is present in the numbwe exactly once.
+    """
+    for check_digit in range(1, 10):
+        check_digit_str = str(check_digit)
+        found_count = sum(1 for n_char in n if n_char == check_digit_str)
+        if found_count != 1: return False
+    
+    return True
+
+def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     """Determine if a number n is prime (or coprime to a list of factors)"""
     if n < 2: return False
     max_factor = floor(sqrt(n))
