@@ -1,4 +1,4 @@
-from number_theory import isPrime, primes
+from number_theory import is_prime, primes
 def p27(a_start: int, a_stop: int, b_start: int, b_stop: int) -> int:
     # b needs to be prime to get a prime when n == 0, so b >= 2
     b_start = max(b_start, 2)
@@ -26,7 +26,7 @@ def p27(a_start: int, a_stop: int, b_start: int, b_stop: int) -> int:
             for n in range(0, b):
                 quadratic_value = n * n + a * n + b
                 if quadratic_value < 0: break
-                if not isPrime(quadratic_value, prime_factors): break
+                if not is_prime(quadratic_value, prime_factors): break
             if n > max_n:
                 (max_a, max_b, max_n) = (a, b, n)
     
