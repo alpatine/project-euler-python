@@ -1,5 +1,5 @@
 from unittest import TestCase
-from number_theory import (count_divisors, divisor_sums_to, is_pandigital, is_prime,
+from number_theory import (count_divisors, digit_factorial_sum, divisor_sums_to, is_pandigital, is_prime,
     nth_prime, period_of_repeating_decimal, prime_factors, primes)
 
 class Count_Divisors_Test(TestCase):
@@ -23,6 +23,19 @@ class Count_Divisors_Test(TestCase):
     
     def test_count_divisors_28(self):
         self.assertEqual(count_divisors(28), 6)
+
+class Digit_Factorial_Sum_Test(TestCase):
+    def test_4(self):
+        self.assertEqual(digit_factorial_sum(4), 24)
+    
+    def test_28(self):
+        self.assertEqual(digit_factorial_sum(28), 40322)
+    
+    def test_100(self):
+        self.assertEqual(digit_factorial_sum(100), 3)
+    
+    def test_145(self):
+        self.assertEqual(digit_factorial_sum(145), 145)
 
 class Divisor_Sums_To_Test(TestCase):
     def test_2(self):

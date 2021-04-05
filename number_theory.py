@@ -24,6 +24,14 @@ def count_divisors(number: int, prime_numbers: Iterator[int] = None) -> int:
         divisors *= prime_power
     return divisors
 
+def digit_factorial_sum(number: int) -> int:
+    """Sums the factorial of each digit in number.
+
+    Example: for 28 this returns 2! + 8! = 40322
+    """
+    factorials = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+    return sum(factorials[int(d)] for d in str(number))
+
 def divisor_sums_to(number: int) -> Dict[int, int]:
     """Returns a dictionary of numbers with the sum of their proper divisors, stopping before number
 
