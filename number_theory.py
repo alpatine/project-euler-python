@@ -71,7 +71,7 @@ def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     if n < 2: return False
     max_factor = floor(sqrt(n))
     if list_of_factors is None:
-        list_of_factors = primes(max_factor)
+        list_of_factors = primes(max_factor + 1)
     
     for factor in list_of_factors:
         if factor > max_factor: break

@@ -75,6 +75,9 @@ class Is_Prime_Test(TestCase):
     def test_19(self):
         self.assertEqual(is_prime(19), True)
     
+    def test_35(self):
+        self.assertEqual(is_prime(35), False)
+    
     def test_10(self):
         self.assertEqual(is_prime(10), False)
     
