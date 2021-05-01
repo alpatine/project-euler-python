@@ -54,6 +54,14 @@ def estimate_nth_prime(n: int) -> int:
     # As n gets larger, the nth prime ~ n * ln(n)
     return int(n * log(n))
 
+def is_palindrome(n: str) -> bool:
+    """Determine if a number is a palindrome.
+
+    Expects the number as a string. Checks if n is equal to the reverse of n.
+    """
+    return n == n[::-1]
+
+
 def is_pandigital(n: str) -> bool:
     """Determines if a number n is pandigital.
 
