@@ -22,7 +22,6 @@ def p35(stop: int) -> int:
             # all rotations are prime
             circular_primes.update(rotations)
     
-    print(circular_primes)
     return len(circular_primes)
 
 def rotate(list_to_rotate: list) -> list:
