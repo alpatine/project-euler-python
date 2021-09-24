@@ -1,4 +1,4 @@
-from number_theory import period_of_repeating_decimal
+from digits import period_of_repeating_decimal
 
 def p26(stop: int) -> int:
     # Fact: The period of repeating decimal (1/n) is always < n.

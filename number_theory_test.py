@@ -1,6 +1,6 @@
 from unittest import TestCase
-from number_theory import (count_divisors, digit_factorial_sum, divisor_sums_to, is_palindrome, is_pandigital, is_prime,
-    nth_prime, period_of_repeating_decimal, prime_factors, primes)
+from number_theory import (count_divisors, divisor_sums_to, is_prime,
+    nth_prime, prime_factors, primes)
 
 class Count_Divisors_Test(TestCase):
     def test_count_divisors_1(self):
@@ -24,19 +24,6 @@ class Count_Divisors_Test(TestCase):
     def test_count_divisors_28(self):
         self.assertEqual(count_divisors(28), 6)
 
-class Digit_Factorial_Sum_Test(TestCase):
-    def test_4(self):
-        self.assertEqual(digit_factorial_sum(4), 24)
-    
-    def test_28(self):
-        self.assertEqual(digit_factorial_sum(28), 40322)
-    
-    def test_100(self):
-        self.assertEqual(digit_factorial_sum(100), 3)
-    
-    def test_145(self):
-        self.assertEqual(digit_factorial_sum(145), 145)
-
 class Divisor_Sums_To_Test(TestCase):
     def test_2(self):
         self.assertEqual(divisor_sums_to(2), {0:0, 1: 0})
@@ -51,32 +38,6 @@ class Divisor_Sums_To_Test(TestCase):
         self.assertEqual(divisor_sums_to(11),
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
-
-class Is_Palindrome_Test(TestCase):
-    def test_1(self):
-        self.assertEqual(is_palindrome('1'), True)
-    
-    def test_10(self):
-        self.assertEqual(is_palindrome('10'), False)
-    
-    def test_585(self):
-        self.assertEqual(is_palindrome('585'), True)
-    
-    def test_1001001001(self):
-        self.assertEqual(is_palindrome('1001001001'), True)
-
-class Is_Pandigital_Test(TestCase):
-    def test_123456789(self):
-        self.assertEqual(is_pandigital('123456789'), True)
-    
-    def test_empty(self):
-        self.assertEqual(is_pandigital(''), False)
-    
-    def test_635241879(self):
-        self.assertEqual(is_pandigital('635241879'), True)
-    
-    def test_12345(self):
-        self.assertEqual(is_pandigital('12345'), False)
 
 class Is_Prime_Test(TestCase):
     def test_1(self):
@@ -112,28 +73,6 @@ class Nth_Prime_Test(TestCase):
     
     def test_nth_prime_6(self):
         self.assertEqual(nth_prime(6), 13)
-
-class Period_Of_Repeating_Decimal_Test(TestCase):
-    def test_1(self):
-        self.assertEqual(period_of_repeating_decimal(1), 0)
-
-    def test_2(self):
-        self.assertEqual(period_of_repeating_decimal(2), 0)
-    
-    def test_3(self):
-        self.assertEqual(period_of_repeating_decimal(3), 1)
-
-    def test_5(self):
-        self.assertEqual(period_of_repeating_decimal(5), 0)
-
-    def test_7(self):
-        self.assertEqual(period_of_repeating_decimal(7), 6)
-    
-    def test_20(self):
-        self.assertEqual(period_of_repeating_decimal(20), 0)
-
-    def test_30(self):
-        self.assertEqual(period_of_repeating_decimal(30), 1)
 
 class Prime_Factors_Test(TestCase):
     def test_prime_factors_1(self):

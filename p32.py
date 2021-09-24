@@ -1,6 +1,6 @@
 from math import ceil, prod
 from typing import List, Set
-from number_theory import is_pandigital
+from digits import is_pandigital
 
 def p32() -> int:
     pandigital_products = set()

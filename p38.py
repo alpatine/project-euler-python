@@ -1,5 +1,5 @@
 from math import prod
-from number_theory import is_pandigital
+from digits import is_pandigital
 def p38():
     # n == 2 -> x in [5000, 9999]
     # n == 3 -> x in [100, 333]

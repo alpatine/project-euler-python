@@ -1,4 +1,4 @@
-from number_theory import is_palindrome
+from digits import is_palindrome
 def p36(stop: int) -> int:
 
     # Rather than test every number we'll build the palindrome
