@@ -1,6 +1,41 @@
 from unittest import TestCase
-from digits import (digit_factorial_sum, is_palindrome, is_pandigital,
+from digits import (champernowne_digit, digit_factorial_sum, digits_in_order_of_10,
+    digits_up_to_order_of_10, is_palindrome, is_pandigital,
     period_of_repeating_decimal)
+
+class Champernowne_Digit_Test(TestCase):
+    def test_0(self):
+        self.assertEqual(champernowne_digit(0), 0)
+    
+    def test_1(self):
+        self.assertEqual(champernowne_digit(1), 1)
+    
+    def test_5(self):
+        self.assertEqual(champernowne_digit(5), 5)
+    
+    def test_10(self):
+        self.assertEqual(champernowne_digit(10), 1)
+    
+    def test_12(self):
+        self.assertEqual(champernowne_digit(12), 1)
+    
+    def test_15(self):
+        self.assertEqual(champernowne_digit(15), 2)
+    
+    def test_100(self):
+        self.assertEqual(champernowne_digit(100), 5)
+    
+    def test_1000(self):
+        self.assertEqual(champernowne_digit(1000), 3)
+    
+    def test_10000(self):
+        self.assertEqual(champernowne_digit(10000), 7)
+    
+    def test_100000(self):
+        self.assertEqual(champernowne_digit(100000), 2)
+    
+    def test_1000000(self):
+        self.assertEqual(champernowne_digit(1000000), 1)
 
 class Digit_Factorial_Sum_Test(TestCase):
     def test_4(self):
@@ -14,6 +49,29 @@ class Digit_Factorial_Sum_Test(TestCase):
     
     def test_145(self):
         self.assertEqual(digit_factorial_sum(145), 145)
+
+class Digits_In_Order_Of_10_Test(TestCase):
+    def test_0(self):
+        self.assertEqual(digits_in_order_of_10(0), 9)
+    
+    def test_1(self):
+        self.assertEqual(digits_in_order_of_10(1), 180)
+    
+    def test_2(self):
+        self.assertEqual(digits_in_order_of_10(2), 2700)
+
+    def test_10(self):
+        self.assertEqual(digits_in_order_of_10(10), 990000000000)
+
+class Digits_Up_To_Order_Of_10_Test(TestCase):
+    def test_0(self):
+        self.assertEqual(digits_up_to_order_of_10(0), 9)
+    
+    def test_1(self):
+        self.assertEqual(digits_up_to_order_of_10(1), 189)
+    
+    def test_5(self):
+        self.assertEqual(digits_up_to_order_of_10(5), 5888889)
 
 class Is_Palindrome_Test(TestCase):
     def test_1(self):
