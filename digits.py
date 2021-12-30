@@ -75,12 +75,16 @@ def is_palindrome(n: str) -> bool:
     """
     return n == n[::-1]
 
-def is_pandigital(n: str) -> bool:
+def is_pandigital(n: str, digits: int = None) -> bool:
     """Determines if a number n is pandigital.
 
     Checks that each digit from 1 to 9 is present in the numbwe exactly once.
     """
-    for check_digit in range(1, 10):
+    if digits is None:
+        digits = 9
+    if len(n) != digits:
+        return False
+    for check_digit in range(1, digits + 1):
         check_digit_str = str(check_digit)
         found_count = sum(1 for n_char in n if n_char == check_digit_str)
         if found_count != 1: return False
