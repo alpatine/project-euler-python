@@ -6,7 +6,7 @@ def p41():
     primes_list.reverse()
     return next(pandigital_prime
                 for pandigital_prime in primes_list
-                if is_pandigital(str(pandigital_prime), len(str(pandigital_prime))))
+                if is_pandigital(str(pandigital_prime)))
 
 if __name__ == '__main__':
     print(p41())

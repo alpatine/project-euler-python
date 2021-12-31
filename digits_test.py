@@ -89,27 +89,15 @@ class Is_Palindrome_Test(TestCase):
 class Is_Pandigital_Test(TestCase):
     def test_123456789(self):
         self.assertEqual(is_pandigital('123456789'), True)
-
-    def test_123456789_9(self):
-        self.assertEqual(is_pandigital('123456789', 9), True)
     
     def test_empty(self):
-        self.assertEqual(is_pandigital(''), False)
+        self.assertEqual(is_pandigital(''), True)
     
     def test_635241879(self):
         self.assertEqual(is_pandigital('635241879'), True)
     
     def test_12345(self):
-        self.assertEqual(is_pandigital('12345'), False)
-    
-    def test_12345_5(self):
-        self.assertEqual(is_pandigital('12345', 5), True)
-    
-    def test_12345_4(self):
-        self.assertEqual(is_pandigital('12345', 4), False)
-    
-    def test_98765_5(self):
-        self.assertEqual(is_pandigital('98765', 5), False)
+        self.assertEqual(is_pandigital('12345'), True)
 
 class Period_Of_Repeating_Decimal_Test(TestCase):
     def test_1(self):
