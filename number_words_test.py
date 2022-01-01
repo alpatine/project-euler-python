@@ -1,7 +1,7 @@
 from unittest import TestCase
-from number_words import number_to_words
+from number_words import number_to_words, word_score
 
-class Number_Words_Test(TestCase):
+class Number_To_Words_Test(TestCase):
     def test_ones(self):
         self.assertEqual(number_to_words(1), 'one')
         self.assertEqual(number_to_words(2), 'two')
@@ -55,3 +55,19 @@ class Number_Words_Test(TestCase):
         self.assertEqual(number_to_words(507), 'fivehundredandseven')
         self.assertEqual(number_to_words(314), 'threehundredandfourteen')
         self.assertEqual(number_to_words(825), 'eighthundredandtwentyfive')
+
+class Word_Score_Test(TestCase):
+    def test_A(self):
+        self.assertEqual(word_score('A'), 1)
+    
+    def test_a(self):
+        self.assertEqual(word_score('a'), 1)
+    
+    def test_ALPHA(self):
+        self.assertEqual(word_score('ALPHA'), 38)
+    
+    def test_AlPhA(self):
+        self.assertEqual(word_score('AlPhA'), 38)
+
+    def test_alpha(self):
+        self.assertEqual(word_score('alpha'), 38)
