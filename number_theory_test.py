@@ -1,5 +1,5 @@
 from unittest import TestCase
-from number_theory import (count_divisors, divisor_sums_to, is_prime,
+from number_theory import (count_divisors, divisor_sums_to, estimate_triangle_base, is_prime, is_triangle_number,
     nth_prime, prime_factors, primes)
 
 class Count_Divisors_Test(TestCase):
@@ -39,6 +39,25 @@ class Divisor_Sums_To_Test(TestCase):
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
 
+class Estimate_Triangle_Base_Test(TestCase):
+    def test_1(self):
+        self.assertEqual(estimate_triangle_base(1), 1)
+    
+    def test_2(self):
+        self.assertEqual(estimate_triangle_base(2), 1)
+    
+    def test_3(self):
+        self.assertEqual(estimate_triangle_base(3), 2)
+    
+    def test_10(self):
+        self.assertEqual(estimate_triangle_base(10), 4)
+    
+    def test_1275(self):
+        self.assertEqual(estimate_triangle_base(1275), 50)
+    
+    def test_1500(self):
+        self.assertEqual(estimate_triangle_base(1500), 54)
+
 class Is_Prime_Test(TestCase):
     def test_1(self):
         self.assertEqual(is_prime(1), False)
@@ -60,6 +79,15 @@ class Is_Prime_Test(TestCase):
     
     def test_10_coprime_false(self):
         self.assertEqual(is_prime(10, [2, 3]), False)
+
+class Is_Triangle_Number_Test(TestCase):
+    def test_1_55(self):
+        for number in range(1, 11):
+            triangle = number * (number + 1) // 2
+            self.assertEqual(is_triangle_number(triangle), True)
+    
+    def test_2(self):
+        self.assertEqual(is_triangle_number(2), False)
 
 class Nth_Prime_Test(TestCase):
     def test_nth_prime_1(self):

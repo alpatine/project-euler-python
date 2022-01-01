@@ -46,6 +46,16 @@ def estimate_nth_prime(n: int) -> int:
     # As n gets larger, the nth prime ~ n * ln(n)
     return int(n * log(n))
 
+def estimate_triangle_base(number: int) -> int:
+    """Estimates the position of number in the triangle numbers sequence
+
+    The estimate provided is always an integer. If number is a triangle
+    number then the estimate is the base. If number is not a triangle
+    number then the estimate is the base of the largest triangle number
+    less than number.
+    """
+    return (sqrt(8 * number + 1) - 1) // 2
+
 def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     """Determine if a number n is prime (or coprime to a list of factors)"""
     if n < 2: return False
@@ -59,6 +69,12 @@ def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
             return False
     
     return True
+
+def is_triangle_number(number: int) -> bool:
+    """Returns true if number is a triangle number, false otherwise."""
+    estimated_base = estimate_triangle_base(number)
+    trial_triangle = estimated_base * (estimated_base + 1) // 2
+    return number == trial_triangle
 
 def nth_prime(n: int) -> int:
     """Calculate the n'th prime number."""
