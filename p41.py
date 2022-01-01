@@ -1,7 +1,7 @@
 from number_theory import primes
 from digits import is_pandigital
 
-def p41():
+def p41() -> None:
     primes_list = [p for p in primes(10000000) if len(str(p)) in [4, 7]]
     primes_list.reverse()
     return next(pandigital_prime
