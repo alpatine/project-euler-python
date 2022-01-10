@@ -1,6 +1,6 @@
 def p43() -> int:
     sum_components = []
-    d1_candidates = range(0, 10)
+    d1_candidates = range(1, 10)
     for d1 in d1_candidates:
         d2_candidates = [x for x in range(0, 10)
                          if x != d1]
