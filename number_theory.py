@@ -46,6 +46,16 @@ def estimate_nth_prime(n: int) -> int:
     # As n gets larger, the nth prime ~ n * ln(n)
     return int(n * log(n))
 
+def estimate_pentagonal_base(number: int) -> int:
+    """Estimates the position of a number in the pentagonal numbers sequence
+
+    The estimate provided is always an integer. If number is a pentagonal
+    number then the estimate is the base. If number is not a pentagonal
+    number then the estimate is the base of the largest pentagonal number
+    less than number.
+    """
+    return int((sqrt(24 * number + 1) + 1) / 6)
+
 def estimate_triangle_base(number: int) -> int:
     """Estimates the position of number in the triangle numbers sequence
 
@@ -70,6 +80,12 @@ def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     
     return True
 
+def is_pentagonal_number(number: int) -> bool:
+    """Returns true if number is a pentagonal number, false otherwise"""
+    estimated_base = estimate_pentagonal_base(number)
+    trial_pentagonal = estimated_base * (3 * estimated_base - 1) // 2
+    return number == trial_pentagonal
+
 def is_triangle_number(number: int) -> bool:
     """Returns true if number is a triangle number, false otherwise."""
     estimated_base = estimate_triangle_base(number)
@@ -83,6 +99,10 @@ def nth_prime(n: int) -> int:
     estimate = estimate_nth_prime(n)
     #return list(primes(2 * estimate))
     return list(islice(primes(2 * estimate), n - 1, n))[0]
+
+def pentagonal_number(n: int) -> int:
+    """Calculates the n'th pentagonal number"""
+    return n * (3 * n - 1) // 2
 
 def prime_factors(number: int) -> Set[int]:
     """Calculate the primes that will divide number.

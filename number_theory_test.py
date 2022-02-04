@@ -1,6 +1,8 @@
+from math import exp
 from unittest import TestCase
-from number_theory import (count_divisors, divisor_sums_to, estimate_triangle_base, is_prime, is_triangle_number,
-    nth_prime, prime_factors, primes)
+from number_theory import (count_divisors, divisor_sums_to,
+    estimate_pentagonal_base, estimate_triangle_base, is_pentagonal_number, is_prime,
+    is_triangle_number, nth_prime, pentagonal_number, prime_factors, primes)
 
 class Count_Divisors_Test(TestCase):
     def test_count_divisors_1(self):
@@ -38,6 +40,15 @@ class Divisor_Sums_To_Test(TestCase):
         self.assertEqual(divisor_sums_to(11),
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
+
+class Estimate_Pentagonal_Base_Test(TestCase):
+    def test_1_4(self):
+        for number in range(1, 5):
+            self.assertEqual(estimate_pentagonal_base(number), 1)
+    
+    def test_5_11(self):
+        for number in range(5, 12):
+            self.assertEqual(estimate_pentagonal_base(number), 2)
 
 class Estimate_Triangle_Base_Test(TestCase):
     def test_1(self):
@@ -80,6 +91,16 @@ class Is_Prime_Test(TestCase):
     def test_10_coprime_false(self):
         self.assertEqual(is_prime(10, [2, 3]), False)
 
+class Is_Pentagonal_Number_Test(TestCase):
+    def test_first_10(self):
+        for number in range(1, 11):
+            pentagonal = number * (3 * number - 1) // 2
+            self.assertEqual(is_pentagonal_number(pentagonal), True)
+    
+    def test_2_4(self):
+        for number in range(2, 5):
+            self.assertEqual(is_pentagonal_number(number), False)
+
 class Is_Triangle_Number_Test(TestCase):
     def test_1_55(self):
         for number in range(1, 11):
@@ -101,6 +122,13 @@ class Nth_Prime_Test(TestCase):
     
     def test_nth_prime_6(self):
         self.assertEqual(nth_prime(6), 13)
+
+class Pentagonal_Number_Test(TestCase):
+    def test_1_10(self):
+        for n in range(1, 11):
+            calculated = pentagonal_number(n)
+            expected = n * (3 * n - 1) // 2
+            self.assertEqual(calculated, expected)
 
 class Prime_Factors_Test(TestCase):
     def test_prime_factors_1(self):
