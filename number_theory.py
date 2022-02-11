@@ -1,4 +1,4 @@
-from math import sqrt, floor, log
+from math import ceil, sqrt, floor, log
 from itertools import islice
 from typing import Iterator, Set, List, Dict
 
@@ -46,25 +46,15 @@ def estimate_nth_prime(n: int) -> int:
     # As n gets larger, the nth prime ~ n * ln(n)
     return int(n * log(n))
 
-def estimate_pentagonal_base(number: int) -> int:
-    """Estimates the position of a number in the pentagonal numbers sequence
+def is_hexagonal_number(number: int) -> bool:
+    """Returns true if number is an hexagonal number, false otherwise"""
+    potential_base = (1 + sqrt(1 + 8 * number)) * 0.25
+    return ceil(potential_base) == floor(potential_base)
 
-    The estimate provided is always an integer. If number is a pentagonal
-    number then the estimate is the base. If number is not a pentagonal
-    number then the estimate is the base of the largest pentagonal number
-    less than number.
-    """
-    return int((sqrt(24 * number + 1) + 1) / 6)
-
-def estimate_triangle_base(number: int) -> int:
-    """Estimates the position of number in the triangle numbers sequence
-
-    The estimate provided is always an integer. If number is a triangle
-    number then the estimate is the base. If number is not a triangle
-    number then the estimate is the base of the largest triangle number
-    less than number.
-    """
-    return (sqrt(8 * number + 1) - 1) // 2
+def is_pentagonal_number(number: int) -> bool:
+    """Returns true if number is a pentagonal number, false otherwise"""
+    potential_base = (sqrt(24 * number + 1) + 1) / 6
+    return ceil(potential_base) == floor(potential_base)
 
 def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     """Determine if a number n is prime (or coprime to a list of factors)"""
@@ -80,17 +70,10 @@ def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     
     return True
 
-def is_pentagonal_number(number: int) -> bool:
-    """Returns true if number is a pentagonal number, false otherwise"""
-    estimated_base = estimate_pentagonal_base(number)
-    trial_pentagonal = estimated_base * (3 * estimated_base - 1) // 2
-    return number == trial_pentagonal
-
 def is_triangle_number(number: int) -> bool:
     """Returns true if number is a triangle number, false otherwise."""
-    estimated_base = estimate_triangle_base(number)
-    trial_triangle = estimated_base * (estimated_base + 1) // 2
-    return number == trial_triangle
+    potential_base = (sqrt(8 * number + 1) - 1) * 0.5
+    return ceil(potential_base) == floor(potential_base)
 
 def nth_prime(n: int) -> int:
     """Calculate the n'th prime number."""

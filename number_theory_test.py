@@ -1,8 +1,10 @@
 from math import exp
 from unittest import TestCase
 from number_theory import (count_divisors, divisor_sums_to,
-    estimate_pentagonal_base, estimate_triangle_base, is_pentagonal_number, is_prime,
-    is_triangle_number, nth_prime, pentagonal_number, prime_factors, primes)
+                           is_hexagonal_number, is_pentagonal_number, is_prime,
+                           is_triangle_number, nth_prime, pentagonal_number,
+                           prime_factors, primes)
+
 
 class Count_Divisors_Test(TestCase):
     def test_count_divisors_1(self):
@@ -41,33 +43,18 @@ class Divisor_Sums_To_Test(TestCase):
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
 
-class Estimate_Pentagonal_Base_Test(TestCase):
-    def test_1_4(self):
-        for number in range(1, 5):
-            self.assertEqual(estimate_pentagonal_base(number), 1)
-    
-    def test_5_11(self):
-        for number in range(5, 12):
-            self.assertEqual(estimate_pentagonal_base(number), 2)
-
-class Estimate_Triangle_Base_Test(TestCase):
-    def test_1(self):
-        self.assertEqual(estimate_triangle_base(1), 1)
-    
-    def test_2(self):
-        self.assertEqual(estimate_triangle_base(2), 1)
-    
-    def test_3(self):
-        self.assertEqual(estimate_triangle_base(3), 2)
-    
-    def test_10(self):
-        self.assertEqual(estimate_triangle_base(10), 4)
-    
-    def test_1275(self):
-        self.assertEqual(estimate_triangle_base(1275), 50)
-    
-    def test_1500(self):
-        self.assertEqual(estimate_triangle_base(1500), 54)
+class Is_Hexagonal_Number_Test(TestCase):
+        def test_1(self):
+            self.assertEqual(is_hexagonal_number(1), True)
+        
+        def test_2_5(self):
+            for number in range(2, 6):
+                self.assertEqual(is_hexagonal_number(number), False)
+        
+        def test_first_10(self):
+            for base in range(1, 11):
+                number = base * (2 * base - 1)
+                self.assertEqual(is_hexagonal_number(number), True)
 
 class Is_Prime_Test(TestCase):
     def test_1(self):
