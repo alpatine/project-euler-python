@@ -1,10 +1,9 @@
 from math import exp
 from unittest import TestCase
-from number_theory import (count_divisors, divisor_sums_to,
+from number_theory import (count_divisors, divisor_sums_to, hexagonal_number,
                            is_hexagonal_number, is_pentagonal_number, is_prime,
                            is_triangle_number, nth_prime, pentagonal_number,
                            prime_factors, primes)
-
 
 class Count_Divisors_Test(TestCase):
     def test_count_divisors_1(self):
@@ -42,6 +41,13 @@ class Divisor_Sums_To_Test(TestCase):
         self.assertEqual(divisor_sums_to(11),
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
+
+class Hexagonal_Number_Test(TestCase):
+    def test_1_10(self):
+        for n in range(1, 11):
+            calculated = hexagonal_number(n)
+            expected = n * (2 * n - 1)
+            self.assertEqual(calculated, expected)
 
 class Is_Hexagonal_Number_Test(TestCase):
         def test_1(self):

@@ -46,6 +46,10 @@ def estimate_nth_prime(n: int) -> int:
     # As n gets larger, the nth prime ~ n * ln(n)
     return int(n * log(n))
 
+def hexagonal_number(n: int) -> int:
+    """Calculates the n'th hexagonal number"""
+    return n * (2 * n - 1)
+
 def is_hexagonal_number(number: int) -> bool:
     """Returns true if number is an hexagonal number, false otherwise"""
     potential_base = (1 + sqrt(1 + 8 * number)) * 0.25
