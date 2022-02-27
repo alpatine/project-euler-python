@@ -1,9 +1,27 @@
 from math import exp
 from unittest import TestCase
-from number_theory import (count_divisors, divisor_sums_to, hexagonal_number,
-                           is_hexagonal_number, is_pentagonal_number, is_prime,
-                           is_triangle_number, nth_prime, pentagonal_number,
-                           prime_factors, primes)
+from number_theory import (composites, count_divisors, divisor_sums_to,
+                           hexagonal_number, is_hexagonal_number,
+                           is_pentagonal_number, is_prime, is_triangle_number,
+                           nth_prime, pentagonal_number, prime_factors, primes)
+
+class Composites_Test(TestCase):
+    def test_composites_0(self):
+        self.assertEqual(list(composites(0)), [])
+    
+    def test_composites_3(self):
+        self.assertEqual(list(composites(4)), [])
+    
+    def test_composites_10(self):
+        self.assertEqual(list(composites(11)), [4, 6, 8, 9, 10])
+    
+    def test_composites_100(self):
+        expected = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26,
+            27, 28, 30, 32, 33, 34, 35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49,
+            50, 51, 52, 54, 55, 56, 57, 58, 60, 62, 63, 64, 65, 66, 68, 69, 70,
+            72, 74, 75, 76, 77, 78, 80, 81, 82, 84, 85, 86, 87, 88, 90, 91, 92, 
+            93, 94, 95, 96, 98, 99, 100]
+        self.assertEqual(list(composites(101)), expected)
 
 class Count_Divisors_Test(TestCase):
     def test_count_divisors_1(self):

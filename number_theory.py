@@ -2,6 +2,23 @@ from math import ceil, sqrt, floor, log
 from itertools import islice
 from typing import Iterator, Set, List, Dict
 
+def composites(upper: int) -> Iterator[int]:
+    """Generate the composite numbers.
+
+    The sequence starts with 4 and continues until upper is reached.
+    The value upper is not included in the sequence.
+    """
+    prime_list = [True] * upper
+    max_factor = floor(sqrt(upper))
+
+    for i in range(2, upper):
+        if prime_list[i] == True:
+            if i <= max_factor:
+                for j in range(i*i, upper, i):
+                    prime_list[j] = False
+        else:
+            yield i
+
 def count_divisors(number: int, prime_numbers: Iterator[int] = None) -> int:
     """Count the divisors of number.
 
