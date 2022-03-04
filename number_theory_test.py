@@ -3,7 +3,7 @@ from unittest import TestCase
 from number_theory import (composites, count_divisors, divisor_sums_to,
                            hexagonal_number, is_hexagonal_number,
                            is_pentagonal_number, is_prime, is_triangle_number,
-                           nth_prime, pentagonal_number, prime_factors, primes)
+                           nth_prime, pentagonal_number, prime_factor_count_to, prime_factors, primes)
 
 class Composites_Test(TestCase):
     def test_composites_0(self):
@@ -140,6 +140,25 @@ class Pentagonal_Number_Test(TestCase):
             calculated = pentagonal_number(n)
             expected = n * (3 * n - 1) // 2
             self.assertEqual(calculated, expected)
+
+class Prime_Factor_Count_To(TestCase):
+    def test_prime_factor_count_to_1(self):
+        expected = {1: 0}
+        self.assertEqual(prime_factor_count_to(2), expected)
+    
+    def test_prime_factor_count_to_2(self):
+        expected = {1: 0, 2: 1}
+        self.assertEqual(prime_factor_count_to(3), expected)
+    
+    def test_prime_factor_count_to_50(self):
+        expected = {
+            1: 0, 2: 1, 3: 1, 4: 1, 5: 1, 6: 2, 7: 1, 8: 1, 9: 1, 10: 2,
+            11: 1, 12: 2, 13: 1, 14: 2, 15: 2, 16: 1, 17: 1, 18: 2, 19: 1, 20: 2,
+            21: 2, 22: 2, 23: 1, 24: 2, 25: 1, 26: 2, 27: 1, 28: 2, 29: 1, 30: 3,
+            31: 1, 32: 1, 33: 2, 34: 2, 35: 2, 36: 2, 37: 1, 38: 2, 39: 2, 40: 2,
+            41: 1, 42: 3, 43: 1, 44: 2, 45: 2, 46: 2, 47: 1, 48: 2, 49: 1, 50: 2,
+        }
+        self.assertEqual(prime_factor_count_to(51), expected)
 
 class Prime_Factors_Test(TestCase):
     def test_prime_factors_1(self):

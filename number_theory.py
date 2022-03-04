@@ -108,6 +108,20 @@ def pentagonal_number(n: int) -> int:
     """Calculates the n'th pentagonal number"""
     return n * (3 * n - 1) // 2
 
+def prime_factor_count_to(stop: int) -> Dict[int, int]:
+    """Generates the prime factor counts up to stop (exclusive)
+    
+    Generates a dictionary where the keys are the natural numbers
+    and the values are the number of distinct primes that divide
+    the key.
+    """
+    prime_factor_counts = {n: 0 for n in range(1, stop)}
+    for base_prime in primes(stop):
+        for number in range(base_prime, stop, base_prime):
+            prime_factor_counts[number] += 1
+    
+    return prime_factor_counts
+
 def prime_factors(number: int) -> Set[int]:
     """Calculate the primes that will divide number.
 
