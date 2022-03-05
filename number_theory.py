@@ -154,3 +154,12 @@ def primes(upper: int) -> Iterator[int]:
             if i <= max_factor:
                 for j in range(i*i, upper, i):
                     prime_list[j] = False
+
+def totients_to(stop: int) -> Dict[int, int]:
+    """Generates euler totients up to stop (exclusive)"""
+    totient_set = {n: n for n in range(1, stop)}
+    for prime_factor in primes(stop):
+        for number in range(prime_factor, stop, prime_factor):
+            totient_set[number] = totient_set[number] * (prime_factor - 1) // prime_factor
+
+    return totient_set

@@ -3,7 +3,7 @@ from unittest import TestCase
 from number_theory import (composites, count_divisors, divisor_sums_to,
                            hexagonal_number, is_hexagonal_number,
                            is_pentagonal_number, is_prime, is_triangle_number,
-                           nth_prime, pentagonal_number, prime_factor_count_to, prime_factors, primes)
+                           nth_prime, pentagonal_number, prime_factor_count_to, prime_factors, primes, totients_to)
 
 class Composites_Test(TestCase):
     def test_composites_0(self):
@@ -191,3 +191,15 @@ class Primes_Test(TestCase):
     
     def test_primes_10(self):
         self.assertEqual(list(primes(10)), [2, 3, 5, 7])
+
+class Totients_To_Test(TestCase):
+    def test_totients_to_1(self):
+        expected = {1: 1}
+        self.assertEqual(totients_to(2), expected)
+    
+    def test_totients_to_20(self):
+        expected = {
+            1: 1, 2: 1, 3: 2, 4: 2, 5: 4, 6: 2, 7: 6, 8: 4, 9: 6, 10: 4,
+            11: 10, 12: 4, 13: 12, 14: 6, 15: 8, 16: 8, 17: 16, 18: 6, 19: 18, 20: 8,
+        }
+        self.assertEqual(totients_to(21), expected)
