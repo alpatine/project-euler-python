@@ -1,3 +1,13 @@
+from collections import Counter
+
+def is_anagram(a: str, b: str) -> bool:
+    """Returns true if a and b are anagrams of each other.
+    
+    Example: 1234 and 2341 are anagrams of each other because the have the same
+    number of digits and the same amount of each digit present.
+    """
+    return Counter(a) == Counter(b)
+
 def champernowne_digit(position: int) -> int:
     """Returns the digit at a given position in the champernowne constant
     

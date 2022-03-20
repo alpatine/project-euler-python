@@ -1,7 +1,24 @@
 from unittest import TestCase
-from digits import (champernowne_digit, digit_factorial_sum, digits_in_order_of_10,
-    digits_up_to_order_of_10, is_palindrome, is_pandigital,
-    period_of_repeating_decimal)
+from digits import (champernowne_digit, digit_factorial_sum,
+                    digits_in_order_of_10, digits_up_to_order_of_10,
+                    is_anagram, is_palindrome, is_pandigital,
+                    period_of_repeating_decimal)
+
+class Is_Anagram_Test(TestCase):
+    def test_1_1(self):
+        self.assertEqual(is_anagram('1', '1'), True)
+    
+    def test_1234_3124(self):
+        self.assertEqual(is_anagram('1234', '3124'), True)
+    
+    def test_1212_2211(self):
+        self.assertEqual(is_anagram('1212', '2211'), True)
+    
+    def test_111345_31415(self):
+        self.assertEqual(is_anagram('111345', '31415'), False)
+    
+    def test_1(self):
+        self.assertEqual(is_anagram('1', ''), False)
 
 class Champernowne_Digit_Test(TestCase):
     def test_0(self):
