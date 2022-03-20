@@ -3,7 +3,7 @@ from unittest import TestCase
 from number_theory import (composites, count_divisors, divisor_sums_to,
                            hexagonal_number, is_hexagonal_number,
                            is_pentagonal_number, is_prime, is_triangle_number,
-                           nth_prime, pentagonal_number, prime_factor_count_to, prime_factors, primes, totients_to)
+                           nth_prime, pentagonal_number, prime_ceil_to, prime_factor_count_to, prime_factors, primes, totients_to)
 
 class Composites_Test(TestCase):
     def test_composites_0(self):
@@ -140,6 +140,42 @@ class Pentagonal_Number_Test(TestCase):
             calculated = pentagonal_number(n)
             expected = n * (3 * n - 1) // 2
             self.assertEqual(calculated, expected)
+
+class Prime_Ceil_To(TestCase):
+    def test_1(self):
+        expected = {}
+        self.assertEqual(prime_ceil_to(1), expected)
+    
+    def test_2(self):
+        expected = {1: 2}
+        self.assertEqual(prime_ceil_to(2), expected)
+
+    def test_5(self):
+        expected = {
+            1: 2, 2: 2, 3: 3, 4: 5,
+        }
+        self.assertEqual(prime_ceil_to(5), expected)
+    
+    def test_6(self):
+        expected = {
+            1: 2, 2: 2, 3: 3, 4: 5, 5: 5,
+        }
+        self.assertEqual(prime_ceil_to(6), expected)
+    
+    def test_50(self):
+        expected = {
+            1: 2, 2: 2, 3: 3, 4: 5, 5: 5,
+            6: 7, 7: 7, 8: 11, 9: 11, 10: 11,
+            11: 11, 12: 13, 13: 13, 14: 17, 15: 17,
+            16: 17, 17: 17, 18: 19, 19: 19, 20: 23,
+            21: 23, 22: 23, 23: 23, 24: 29, 25: 29,
+            26: 29, 27: 29, 28: 29, 29: 29, 30: 31,
+            31: 31, 32: 37, 33: 37, 34: 37, 35: 37,
+            36: 37, 37: 37, 38: 41, 39: 41, 40: 41,
+            41: 41, 42: 43, 43: 43, 44: 47, 45: 47,
+            46: 47, 47: 47, 48: 53, 49: 53, 50: 53,
+        }
+        self.assertEqual(prime_ceil_to(51), expected)
 
 class Prime_Factor_Count_To(TestCase):
     def test_prime_factor_count_to_1(self):
