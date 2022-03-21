@@ -108,7 +108,7 @@ def pentagonal_number(n: int) -> int:
     """Calculates the n'th pentagonal number"""
     return n * (3 * n - 1) // 2
 
-def prime_ceil_to(stop: int) -> List[int]:
+def prime_ceil_to(stop: int, list_of_primes: List[int] = None) -> List[int]:
     """Generates a dict of the 'ceiling' to the next prime number
     
     Keys start at 1 and go to stop (exclusive). Values contain the smallest
@@ -119,10 +119,11 @@ def prime_ceil_to(stop: int) -> List[int]:
 
     Example: Key 5 will have the value 5 because 5 is the smallest prime
     that is greater than or equal to 5 (equal to in this case)."""
-    
+    if list_of_primes == None:
+        list_of_primes = list(primes(stop * 2)) # bertrand's postulate
     result = {}
     key_value_start = 1
-    for prime in primes(stop * 2): # bertrand's postulate
+    for prime in list_of_primes: 
         for key_number in range(key_value_start, min(stop, prime + 1)):
             result[key_number] = prime
         key_value_start = prime + 1

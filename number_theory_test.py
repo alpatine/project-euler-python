@@ -176,6 +176,22 @@ class Prime_Ceil_To(TestCase):
             46: 47, 47: 47, 48: 53, 49: 53, 50: 53,
         }
         self.assertEqual(prime_ceil_to(51), expected)
+    
+    def test_50_supplied_primes(self):
+        list_of_primes = list(primes(60))
+        expected = {
+            1: 2, 2: 2, 3: 3, 4: 5, 5: 5,
+            6: 7, 7: 7, 8: 11, 9: 11, 10: 11,
+            11: 11, 12: 13, 13: 13, 14: 17, 15: 17,
+            16: 17, 17: 17, 18: 19, 19: 19, 20: 23,
+            21: 23, 22: 23, 23: 23, 24: 29, 25: 29,
+            26: 29, 27: 29, 28: 29, 29: 29, 30: 31,
+            31: 31, 32: 37, 33: 37, 34: 37, 35: 37,
+            36: 37, 37: 37, 38: 41, 39: 41, 40: 41,
+            41: 41, 42: 43, 43: 43, 44: 47, 45: 47,
+            46: 47, 47: 47, 48: 53, 49: 53, 50: 53,
+        }
+        self.assertEqual(prime_ceil_to(51, list_of_primes), expected)
 
 class Prime_Factor_Count_To(TestCase):
     def test_prime_factor_count_to_1(self):
