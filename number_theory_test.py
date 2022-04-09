@@ -1,7 +1,7 @@
 from math import exp
 from unittest import TestCase
 from number_theory import (composites, count_divisors, divisor_sums_to,
-                           hexagonal_number, is_hexagonal_number,
+                           hexagonal_number, is_hexagonal_number, is_lychrel_number,
                            is_pentagonal_number, is_prime, is_triangle_number,
                            nth_prime, pentagonal_number, prime_ceil_to, prime_factor_count_to, prime_factors, primes, totients_to)
 
@@ -80,6 +80,25 @@ class Is_Hexagonal_Number_Test(TestCase):
                 number = base * (2 * base - 1)
                 self.assertEqual(is_hexagonal_number(number), True)
 
+class Is_Lychrel_Number_Test(TestCase):
+    def test_47(self):
+        self.assertFalse(is_lychrel_number(47, 50))
+    
+    def test_196(self):
+        self.assertTrue(is_lychrel_number(196, 50))
+    
+    def test_349(self):
+        self.assertFalse(is_lychrel_number(349, 50))
+    
+    def test_4994(self):
+        self.assertTrue(is_lychrel_number(4994, 50))
+
+class Is_Pentagonal_Number_Test(TestCase):
+    def test_first_10(self):
+        for number in range(1, 11):
+            pentagonal = number * (3 * number - 1) // 2
+            self.assertEqual(is_pentagonal_number(pentagonal), True)
+
 class Is_Prime_Test(TestCase):
     def test_1(self):
         self.assertEqual(is_prime(1), False)
@@ -101,12 +120,6 @@ class Is_Prime_Test(TestCase):
     
     def test_10_coprime_false(self):
         self.assertEqual(is_prime(10, [2, 3]), False)
-
-class Is_Pentagonal_Number_Test(TestCase):
-    def test_first_10(self):
-        for number in range(1, 11):
-            pentagonal = number * (3 * number - 1) // 2
-            self.assertEqual(is_pentagonal_number(pentagonal), True)
     
     def test_2_4(self):
         for number in range(2, 5):

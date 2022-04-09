@@ -2,6 +2,8 @@ from math import ceil, sqrt, floor, log
 from itertools import islice
 from typing import Iterator, Set, List, Dict
 
+from digits import is_palindrome
+
 def composites(upper: int) -> Iterator[int]:
     """Generate the composite numbers.
 
@@ -71,6 +73,20 @@ def is_hexagonal_number(number: int) -> bool:
     """Returns true if number is an hexagonal number, false otherwise"""
     potential_base = (1 + sqrt(1 + 8 * number)) * 0.25
     return ceil(potential_base) == floor(potential_base)
+
+def is_lychrel_number(number: int, iteration_stop: int) -> bool:
+    """Returns true if number is a Lychrel number
+    
+    There are no numbers proven to be Lychrel. This process will use
+    iteration limited by the iteration_stop value.
+    """
+    test_number = number
+    for _ in range(iteration_stop):
+        test_number = test_number + int(str(test_number)[::-1])
+        if is_palindrome(str(test_number)):
+            return False
+            
+    return True
 
 def is_pentagonal_number(number: int) -> bool:
     """Returns true if number is a pentagonal number, false otherwise"""
