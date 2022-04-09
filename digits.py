@@ -42,14 +42,6 @@ def champernowne_digit(position: int) -> int:
     position_in_target_natural_zb = position_in_order_zb % digits_per_number_in_order
     return int(str(target_natural)[position_in_target_natural_zb])
 
-def digit_factorial_sum(number: int) -> int:
-    """Sums the factorial of each digit in number.
-
-    Example: for 28 this returns 2! + 8! = 40322
-    """
-    factorials = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
-    return sum(factorials[int(d)] for d in str(number))
-
 def digits_in_order_of_10(order: int) -> int:
     """Counts the digits to write out naturals in an order of 10
 

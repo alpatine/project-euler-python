@@ -1,4 +1,4 @@
-from digits import digit_factorial_sum
+from sums import digit_factorial_sum
 
 def p34():
     result_sum = 0

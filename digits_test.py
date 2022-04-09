@@ -1,8 +1,7 @@
 from unittest import TestCase
-from digits import (champernowne_digit, digit_factorial_sum,
-                    digits_in_order_of_10, digits_up_to_order_of_10,
-                    is_anagram, is_palindrome, is_pandigital,
-                    period_of_repeating_decimal)
+from digits import (champernowne_digit, digits_in_order_of_10,
+                    digits_up_to_order_of_10, is_anagram, is_palindrome,
+                    is_pandigital, period_of_repeating_decimal)
 
 class Is_Anagram_Test(TestCase):
     def test_1_1(self):
@@ -53,19 +52,6 @@ class Champernowne_Digit_Test(TestCase):
     
     def test_1000000(self):
         self.assertEqual(champernowne_digit(1000000), 1)
-
-class Digit_Factorial_Sum_Test(TestCase):
-    def test_4(self):
-        self.assertEqual(digit_factorial_sum(4), 24)
-    
-    def test_28(self):
-        self.assertEqual(digit_factorial_sum(28), 40322)
-    
-    def test_100(self):
-        self.assertEqual(digit_factorial_sum(100), 3)
-    
-    def test_145(self):
-        self.assertEqual(digit_factorial_sum(145), 145)
 
 class Digits_In_Order_Of_10_Test(TestCase):
     def test_0(self):
