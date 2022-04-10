@@ -1,5 +1,5 @@
 from unittest import TestCase
-from sums import digit_factorial_sum, sum_numbers, sum_square_numbers
+from sums import digit_factorial_sum, digit_sum, sum_numbers, sum_square_numbers
 
 class Digit_Factorial_Sum_Test(TestCase):
     def test_4(self):
@@ -13,6 +13,16 @@ class Digit_Factorial_Sum_Test(TestCase):
     
     def test_145(self):
         self.assertEqual(digit_factorial_sum(145), 145)
+
+class Digit_Sum_Test(TestCase):
+    def test_1(self):
+        self.assertEqual(digit_sum(1), 1)
+    
+    def test_24(self):
+        self.assertEqual(digit_sum(24), 6)
+    
+    def test_googol(self):
+        self.assertEqual(digit_sum(10 ** 100), 1)
 
 class Sum_Numbers_Test(TestCase):
     def test_sum_numbers_1(self):
