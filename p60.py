@@ -1,4 +1,5 @@
 from itertools import combinations
+from typing import Any
 from number_theory import is_prime, primes
 from math import comb
 
@@ -12,14 +13,14 @@ def p60(set_size: int, max_include_prime: int, max_check_prime: int) -> int:
         'valid_sets': []
     }
     walk_prime_tree(concat_map,
-                    set(),
+                    [],
                     set_size,
                     0,
                     results)
     return min(map(sum, results['valid_sets']))
 
 def prepare_concat_map(source_primes: list[int],
-                       check_primes: list[int]) -> dict[int, set[int]]:
+                       check_primes: list[int]) -> dict[int, list[int]]:
     left_to_right = {}
     for prime_pair in combinations(source_primes, 2):
         left_prime = str(prime_pair[0])
@@ -29,14 +30,14 @@ def prepare_concat_map(source_primes: list[int],
         right_left_prime = is_prime(int(right_prime + left_prime),
                                     check_primes)
         if left_right_prime and right_left_prime:
-            left_to_right.setdefault(prime_pair[0], set()).add(prime_pair[1])
+            left_to_right.setdefault(prime_pair[0], []).append(prime_pair[1])
     return left_to_right
 
 def walk_prime_tree(primes_available: dict[int, list[int]],
-                    primes_collected: set[int],
+                    primes_collected: list[int],
                     number_primes_to_find: int,
                     running_sum: int,
-                    outputs: list[set[int]]) -> None:
+                    outputs: dict[str, Any]) -> None:
     for p in primes_available:
         if running_sum + p >= outputs['smallest_sum']:
             return
@@ -45,7 +46,7 @@ def walk_prime_tree(primes_available: dict[int, list[int]],
         if len(target_intersect) == 0:
             if number_primes_to_find == 1:
                 result = primes_collected.copy()
-                result.add(p)
+                result.append(p)
                 outputs['valid_sets'].append(result)
                 outputs['smallest_sum'] = running_sum + p
             continue
@@ -53,7 +54,7 @@ def walk_prime_tree(primes_available: dict[int, list[int]],
             next_primes_available = {p:primes_available[p]
                                      for p in target_intersect}
             next_primes_collected = primes_collected.copy()
-            next_primes_collected.add(p)
+            next_primes_collected.append(p)
             walk_prime_tree(next_primes_available,
                             next_primes_collected,
                             number_primes_to_find - 1,
@@ -71,4 +72,4 @@ def check_prime_set(primes: list[int], concat_map: list[int]) -> bool:
 
 if __name__ == '__main__':
     print(p60(4, 1000, 1000000))
-    #print(p60(5, 10000, 1000000))
+    print(p60(5, 10000, 1000000))
