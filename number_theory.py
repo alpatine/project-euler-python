@@ -3,6 +3,7 @@ from fractions import Fraction
 from itertools import islice
 from math import ceil, floor, log, sqrt
 from typing import Dict, Iterator, List, Set
+
 from digits import is_palindrome
 
 
@@ -84,6 +85,11 @@ def estimate_nth_prime(n: int) -> int:
 def hexagonal_number(n: int) -> int:
     """Calculates the n'th hexagonal number"""
     return n * (2 * n - 1)
+
+def is_heptagonal_number(number: int) -> bool:
+    """Returns true if number if an heptagonal number, false otherwise"""
+    potential_base = (3 + sqrt(40 * number + 9)) * 0.1
+    return ceil(potential_base) == floor(potential_base)
 
 def is_hexagonal_number(number: int) -> bool:
     """Returns true if number is an hexagonal number, false otherwise"""
