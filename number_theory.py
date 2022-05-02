@@ -230,6 +230,13 @@ def primes(upper: int) -> Iterator[int]:
                 for j in range(i*i, upper, i):
                     prime_list[j] = False
 
+def square_numbers_to(stop: int) -> Iterable[int]:
+    """Generates square numbers up to stop (exclusive)"""
+    limit = ceil(sqrt(stop))
+    for base in range(1, limit):
+        square_number = base * base
+        yield square_number
+
 def totients_to(stop: int) -> Dict[int, int]:
     """Generates euler totients up to stop (exclusive)"""
     totient_set = {n: n for n in range(1, stop)}

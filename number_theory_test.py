@@ -8,7 +8,8 @@ from number_theory import (composites, convergents, count_divisors,
                            is_pentagonal_number, is_prime, is_square_number,
                            is_triangle_number, nth_prime, pentagonal_number,
                            prime_ceil_to, prime_factor_count_to, prime_factors,
-                           primes, totients_to, triangle_numbers_to)
+                           primes, square_numbers_to, totients_to,
+                           triangle_numbers_to)
 
 
 class Composites_Test(TestCase):
@@ -349,6 +350,12 @@ class Primes_Test(TestCase):
     
     def test_primes_10(self):
         self.assertEqual(list(primes(10)), [2, 3, 5, 7])
+
+class Square_Numbers_To_Test(TestCase):
+    def test_square_numbers_to_100(self):
+        expected = [1, 4, 9, 16, 25, 36, 49, 64, 81]
+        squares = list(square_numbers_to(100))
+        self.assertEqual(squares, expected)
 
 class Totients_To_Test(TestCase):
     def test_totients_to_1(self):
