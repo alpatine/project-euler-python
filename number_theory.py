@@ -156,7 +156,10 @@ def pentagonal_number(n: int) -> int:
     """Calculates the n'th pentagonal number"""
     return n * (3 * n - 1) // 2
 
-def prime_ceil_to(stop: int, list_of_primes: List[int] = None) -> List[int]:
+def prime_ceil_to(
+        stop: int,
+        list_of_primes: List[int] = None
+        ) -> Dict[int, int]:
     """Generates a dict of the 'ceiling' to the next prime number
     
     Keys start at 1 and go to stop (exclusive). Values contain the smallest
