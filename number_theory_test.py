@@ -4,11 +4,11 @@ from unittest import TestCase
 from number_theory import (composites, convergents, count_divisors,
                            divisor_sums_to, hexagonal_number,
                            is_heptagonal_number, is_hexagonal_number,
-                           is_lychrel_number, is_pentagonal_number, is_prime,
-                           is_square_number, is_triangle_number, nth_prime,
-                           pentagonal_number, prime_ceil_to,
-                           prime_factor_count_to, prime_factors, primes,
-                           totients_to)
+                           is_lychrel_number, is_octagonal_number,
+                           is_pentagonal_number, is_prime, is_square_number,
+                           is_triangle_number, nth_prime, pentagonal_number,
+                           prime_ceil_to, prime_factor_count_to, prime_factors,
+                           primes, totients_to)
 
 
 class Composites_Test(TestCase):
@@ -164,7 +164,16 @@ class Is_Lychrel_Number_Test(TestCase):
     def test_4994(self):
         self.assertTrue(is_lychrel_number(4994, 50))
 
-
+class Is_Octagonal_Number_Test(TestCase):
+    def test_octagonals(self):
+        for number in range(1, 1001):
+            octagonal = number * (3 * number - 2)
+            self.assertEqual(is_octagonal_number(octagonal), True)
+    
+    def test_non_octagonals(self):
+        for number in range(1, 1001):
+            octagonal = number * (3 * number - 2) + 1
+            self.assertEqual(is_octagonal_number(octagonal), False)
 
 class Is_Pentagonal_Number_Test(TestCase):
     def test_first_10(self):

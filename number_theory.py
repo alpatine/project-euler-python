@@ -110,6 +110,11 @@ def is_lychrel_number(number: int, iteration_stop: int) -> bool:
             
     return True
 
+def is_octagonal_number(number: int) -> bool:
+    """Returns true if number is an octagonal number, false otherwise"""
+    potential_base = (sqrt(3 * number + 1) + 1) / 3
+    return ceil(potential_base) == floor(potential_base)
+
 def is_pentagonal_number(number: int) -> bool:
     """Returns true if number is a pentagonal number, false otherwise"""
     potential_base = (sqrt(24 * number + 1) + 1) / 6
