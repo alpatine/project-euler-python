@@ -132,6 +132,11 @@ class Is_Heptagonal_Number_Test(TestCase):
         for number in range(1, 1001):
             heptagonal = number * (5 * number - 3) // 2
             self.assertEqual(is_heptagonal_number(heptagonal), True)
+    
+    def test_non_heptagonals(self):
+        for number in range(1, 1001):
+            heptagonal = (number * (5 * number - 3) // 2) + 1
+            self.assertEqual(is_heptagonal_number(heptagonal), False)
 
 class Is_Hexagonal_Number_Test(TestCase):
     def test_1(self):
@@ -158,6 +163,8 @@ class Is_Lychrel_Number_Test(TestCase):
     
     def test_4994(self):
         self.assertTrue(is_lychrel_number(4994, 50))
+
+
 
 class Is_Pentagonal_Number_Test(TestCase):
     def test_first_10(self):
