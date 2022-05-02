@@ -1,12 +1,13 @@
 from fractions import Fraction
 from unittest import TestCase
+
 from number_theory import (composites, convergents, count_divisors,
                            divisor_sums_to, hexagonal_number,
                            is_hexagonal_number, is_lychrel_number,
-                           is_pentagonal_number, is_prime, is_triangle_number,
-                           nth_prime, pentagonal_number, prime_ceil_to,
-                           prime_factor_count_to, prime_factors, primes,
-                           totients_to)
+                           is_pentagonal_number, is_prime, is_square_number,
+                           is_triangle_number, nth_prime, pentagonal_number,
+                           prime_ceil_to, prime_factor_count_to, prime_factors,
+                           primes, totients_to)
 
 
 class Composites_Test(TestCase):
@@ -126,17 +127,17 @@ class Hexagonal_Number_Test(TestCase):
             self.assertEqual(calculated, expected)
 
 class Is_Hexagonal_Number_Test(TestCase):
-        def test_1(self):
-            self.assertEqual(is_hexagonal_number(1), True)
-        
-        def test_2_5(self):
-            for number in range(2, 6):
-                self.assertEqual(is_hexagonal_number(number), False)
-        
-        def test_first_10(self):
-            for base in range(1, 11):
-                number = base * (2 * base - 1)
-                self.assertEqual(is_hexagonal_number(number), True)
+    def test_1(self):
+        self.assertEqual(is_hexagonal_number(1), True)
+    
+    def test_2_5(self):
+        for number in range(2, 6):
+            self.assertEqual(is_hexagonal_number(number), False)
+    
+    def test_first_10(self):
+        for base in range(1, 11):
+            number = base * (2 * base - 1)
+            self.assertEqual(is_hexagonal_number(number), True)
 
 class Is_Lychrel_Number_Test(TestCase):
     def test_47(self):
@@ -182,6 +183,17 @@ class Is_Prime_Test(TestCase):
     def test_2_4(self):
         for number in range(2, 5):
             self.assertEqual(is_pentagonal_number(number), False)
+
+class Is_Square_Number_Test(TestCase):
+    def test_squares(self):
+        for number in range(1, 1001):
+            square = number * number
+            self.assertEqual(is_square_number(square), True)
+    
+    def test_non_squares(self):
+        for number in range(1, 1001):
+            non_square = number * number + 1
+            self.assertEqual(is_square_number(non_square), False)
 
 class Is_Triangle_Number_Test(TestCase):
     def test_1_55(self):

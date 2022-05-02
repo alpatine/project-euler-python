@@ -123,6 +123,11 @@ def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     
     return True
 
+def is_square_number(number: int) -> bool:
+    """Returns true if number is a square number, false otherwise."""
+    potential_base = sqrt(number)
+    return ceil(potential_base) == floor(potential_base)
+
 def is_triangle_number(number: int) -> bool:
     """Returns true if number is a triangle number, false otherwise."""
     potential_base = (sqrt(8 * number + 1) - 1) * 0.5
