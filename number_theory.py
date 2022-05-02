@@ -2,7 +2,7 @@ from collections import deque
 from fractions import Fraction
 from itertools import islice
 from math import ceil, floor, log, sqrt
-from typing import Dict, Iterator, List, Set
+from typing import Dict, Iterable, Iterator, List, Set
 
 from digits import is_palindrome
 
@@ -238,3 +238,10 @@ def totients_to(stop: int) -> Dict[int, int]:
             totient_set[number] = totient_set[number] * (prime_factor - 1) // prime_factor
 
     return totient_set
+
+def triangle_numbers_to(stop: int) -> Iterable[int]:
+    """Generates triangle numbers up to stop (exclusive)"""
+    limit = ceil((sqrt(8 * stop + 1) - 1) * 0.5)
+    for base in range(1, limit):
+        triangle_number = base * (base + 1) // 2
+        yield triangle_number
