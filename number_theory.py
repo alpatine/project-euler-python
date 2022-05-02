@@ -156,6 +156,13 @@ def pentagonal_number(n: int) -> int:
     """Calculates the n'th pentagonal number"""
     return n * (3 * n - 1) // 2
 
+def pentagonal_numbers_to(stop: int) -> Iterable[int]:
+    """Generates pentagonal numbers up to stop (exclusive)"""
+    limit = ceil((sqrt(24 * stop + 1) + 1) / 6)
+    for base in range(1, limit):
+        pentagonal_number = base * (3 * base - 1) // 2
+        yield pentagonal_number
+
 def prime_ceil_to(
         stop: int,
         list_of_primes: List[int] = None
