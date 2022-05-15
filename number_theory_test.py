@@ -3,13 +3,14 @@ from unittest import TestCase
 
 from number_theory import (composites, convergents, count_divisors,
                            divisor_sums_to, hexagonal_number,
-                           is_heptagonal_number, is_hexagonal_number,
-                           is_lychrel_number, is_octagonal_number,
-                           is_pentagonal_number, is_prime, is_square_number,
-                           is_triangle_number, nth_prime, pentagonal_number,
-                           pentagonal_numbers_to, prime_ceil_to,
-                           prime_factor_count_to, prime_factors, primes,
-                           square_numbers_to, totients_to, triangle_numbers_to)
+                           hexagonal_numbers_to, is_heptagonal_number,
+                           is_hexagonal_number, is_lychrel_number,
+                           is_octagonal_number, is_pentagonal_number, is_prime,
+                           is_square_number, is_triangle_number, nth_prime,
+                           pentagonal_number, pentagonal_numbers_to,
+                           prime_ceil_to, prime_factor_count_to, prime_factors,
+                           primes, square_numbers_to, totients_to,
+                           triangle_numbers_to)
 
 
 class Composites_Test(TestCase):
@@ -127,6 +128,12 @@ class Hexagonal_Number_Test(TestCase):
             calculated = hexagonal_number(n)
             expected = n * (2 * n - 1)
             self.assertEqual(calculated, expected)
+
+class Hexagonal_Numbers_To_Test(TestCase):
+    def test_hexagonal_numbers_to_100(self):
+        expected = [1, 6, 15, 28, 45, 66, 91]
+        hexagonals = list(hexagonal_numbers_to(100))
+        self.assertEqual(hexagonals, expected)
 
 class Is_Heptagonal_Number_Test(TestCase):
     def test_heptagonals(self):
