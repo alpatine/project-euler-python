@@ -93,6 +93,13 @@ def hexagonal_numbers_to(stop: int) -> Iterable[int]:
         hexagonal_number = base * (2 * base - 1)
         yield hexagonal_number
 
+def heptagonal_numbers_to(stop: int) -> Iterable[int]:
+    """Generates heptagonal numbers up to stop (exclusive)"""
+    limit = ceil((3 + sqrt(40 * stop + 9)) * 0.1)
+    for base in range(1, limit):
+        heptagonal_number = base * (5 * base -3) // 2
+        yield heptagonal_number
+
 def is_heptagonal_number(number: int) -> bool:
     """Returns true if number if an heptagonal number, false otherwise"""
     potential_base = (3 + sqrt(40 * number + 9)) * 0.1
@@ -158,6 +165,13 @@ def nth_prime(n: int) -> int:
     estimate = estimate_nth_prime(n)
     #return list(primes(2 * estimate))
     return list(islice(primes(2 * estimate), n - 1, n))[0]
+
+def octagonal_numbers_to(stop: int) -> Iterable[int]:
+    """Generates octagonal numbers up to stop (exclusive)"""
+    limit = ceil((sqrt(3 * stop + 1) + 1) / 3)
+    for base in range(1, limit):
+        octagonal_number = base * (3 * base - 2)
+        yield octagonal_number
 
 def pentagonal_number(n: int) -> int:
     """Calculates the n'th pentagonal number"""

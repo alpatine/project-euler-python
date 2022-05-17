@@ -2,11 +2,12 @@ from fractions import Fraction
 from unittest import TestCase
 
 from number_theory import (composites, convergents, count_divisors,
-                           divisor_sums_to, hexagonal_number,
-                           hexagonal_numbers_to, is_heptagonal_number,
-                           is_hexagonal_number, is_lychrel_number,
-                           is_octagonal_number, is_pentagonal_number, is_prime,
-                           is_square_number, is_triangle_number, nth_prime,
+                           divisor_sums_to, heptagonal_numbers_to,
+                           hexagonal_number, hexagonal_numbers_to,
+                           is_heptagonal_number, is_hexagonal_number,
+                           is_lychrel_number, is_octagonal_number,
+                           is_pentagonal_number, is_prime, is_square_number,
+                           is_triangle_number, nth_prime, octagonal_numbers_to,
                            pentagonal_number, pentagonal_numbers_to,
                            prime_ceil_to, prime_factor_count_to, prime_factors,
                            primes, square_numbers_to, totients_to,
@@ -135,6 +136,12 @@ class Hexagonal_Numbers_To_Test(TestCase):
         hexagonals = list(hexagonal_numbers_to(100))
         self.assertEqual(hexagonals, expected)
 
+class Heptagonal_Numbers_To_Test(TestCase):
+    def test_heptagonal_numbers_to_100(self):
+        expected = [1, 7, 18, 34, 55, 81]
+        heptagonals = list(heptagonal_numbers_to(100))
+        self.assertEqual(heptagonals, expected)
+
 class Is_Heptagonal_Number_Test(TestCase):
     def test_heptagonals(self):
         for number in range(1, 1001):
@@ -247,6 +254,12 @@ class Nth_Prime_Test(TestCase):
     
     def test_nth_prime_6(self):
         self.assertEqual(nth_prime(6), 13)
+
+class Octagonal_Numbers_To_Test(TestCase):
+    def test_octagonal_numbers_to_100(self):
+        expected = [1, 8, 21, 40, 65, 96]
+        octagonals = list(octagonal_numbers_to(100))
+        self.assertEqual(octagonals, expected)
 
 class Pentagonal_Number_Test(TestCase):
     def test_1_10(self):
