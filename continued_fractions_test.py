@@ -1,7 +1,8 @@
+from cmath import exp
 from fractions import Fraction
 from unittest import TestCase
 
-from continued_fractions import convergents
+from continued_fractions import convergents, terms_for_sqrt_of
 
 
 class Convergents_Test(TestCase):
@@ -57,3 +58,56 @@ class Convergents_Test(TestCase):
             Fraction(649, 200),
         ]
         self.assertEqual(list(convergents([3, 4, 12, 4])), expected)
+
+class Terms_For_Sqrt_Of_Test(TestCase):
+    def test_2(self):
+        expected = ([1], [2])
+        self.assertEqual(terms_for_sqrt_of(2, 10), expected)
+    
+    def test_3(self):
+        expected = ([1], [1, 2])
+        self.assertEqual(terms_for_sqrt_of(3, 10), expected)
+
+    def test_4(self):
+        expected = ([2], [])
+        self.assertEqual(terms_for_sqrt_of(4, 10), expected)
+    
+    def test_5(self):
+        expected = ([2], [4])
+        self.assertEqual(terms_for_sqrt_of(5, 10), expected)
+    
+    def test_6(self):
+        expected = ([2], [2, 4])
+        self.assertEqual(terms_for_sqrt_of(6, 10), expected)
+
+    def test_7(self):
+        expected = ([2], [1, 1, 1, 4])
+        self.assertEqual(terms_for_sqrt_of(7, 10), expected)
+
+    def test_8(self):
+        expected = ([2], [1, 4])
+        self.assertEqual(terms_for_sqrt_of(8, 10), expected)
+
+    def test_9(self):
+        expected = ([3], [])
+        self.assertEqual(terms_for_sqrt_of(9, 10), expected)
+
+    def test_10(self):
+        expected = ([3], [6])
+        self.assertEqual(terms_for_sqrt_of(10, 10), expected)
+
+    def test_11(self):
+        expected = ([3], [3, 6])
+        self.assertEqual(terms_for_sqrt_of(11, 10), expected)
+
+    def test_12(self):
+        expected = ([3], [2, 6])
+        self.assertEqual(terms_for_sqrt_of(12, 10), expected)
+
+    def test_13(self):
+        expected = ([3], [1, 1, 1, 1, 6])
+        self.assertEqual(terms_for_sqrt_of(13, 10), expected)
+
+    def test_23(self):
+        expected = ([4], [1, 3, 1, 8])
+        self.assertEqual(terms_for_sqrt_of(23, 10), expected)
