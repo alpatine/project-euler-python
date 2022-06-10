@@ -1,5 +1,5 @@
 from typing import List
-from number_theory import convergents
+from continued_fractions import convergents
 
 def p57(partial_fraction: List[int]) -> int:
     count = 0
