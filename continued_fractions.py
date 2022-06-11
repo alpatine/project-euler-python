@@ -1,10 +1,10 @@
 from collections import deque
 from fractions import Fraction
 from math import floor, sqrt
-from typing import Iterator, List
+from typing import Iterable, Iterator, List
 
 
-def convergents(partial_fraction: List[int]) -> Iterator[Fraction]:
+def convergents(partial_fraction: Iterable[int]) -> Iterator[Fraction]:
     """Generates the convergents of a continued fraction"""
     numerators = deque([0, 1])
     denominators = deque([1, 0])
