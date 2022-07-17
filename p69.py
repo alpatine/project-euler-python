@@ -2,6 +2,8 @@ from number_theory import totients_to
 
 
 def p69(stop: int) -> int:
+    # TODO: This seems slow for the larger number. Investigate the totient
+    # formula to look for a shortcut.
     max_ratio = 0
     max_ratio_n = 0
     totients = totients_to(stop)
