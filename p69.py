@@ -1,18 +1,13 @@
-from number_theory import totients_to
+from number_theory import primes
 
 
 def p69(stop: int) -> int:
-    # TODO: This seems slow for the larger number. Investigate the totient
-    # formula to look for a shortcut.
-    max_ratio = 0
-    max_ratio_n = 0
-    totients = totients_to(stop)
-    for n, totient_n in totients.items():
-        ratio = n / totient_n
-        if ratio > max_ratio:
-            max_ratio = ratio
-            max_ratio_n = n
-    return max_ratio_n
+    running_product = 1
+    for prime_number in primes(stop):
+        if running_product * prime_number < stop:
+            running_product *= prime_number
+        else:
+            return running_product
 
 if __name__ == '__main__':
     print(p69(11))
