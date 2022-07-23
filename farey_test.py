@@ -1,7 +1,9 @@
 from fractions import Fraction
-from re import L
-from unittest import TestCase, expectedFailure
-from farey import calculate_mediant, farey_sequence, farey_sequence_length, term_left_of
+from unittest import TestCase
+
+from farey import (calculate_mediant, farey_sequence, farey_sequence_from,
+                   farey_sequence_length, term_left_of)
+
 
 class Calculate_Mediant_Test(TestCase):
     def test_1_2_3_4(self):
@@ -43,6 +45,19 @@ class Farey_Sequence_Test(TestCase):
             Fraction(1, 1),
         ]
         result = list(farey_sequence(5))
+        self.assertEqual(result, expected)
+
+class Farey_Sequence_From_Test(TestCase):
+    def test_5_1_3_2_5(self):
+        expected = [
+            Fraction(1, 2),
+            Fraction(3, 5),
+            Fraction(2, 3),
+            Fraction(3, 4),
+            Fraction(4, 5),
+            Fraction(1, 1),
+        ]
+        result = list(farey_sequence_from(5, Fraction(1, 3), Fraction(2, 5)))
         self.assertEqual(result, expected)
 
 class Farey_Sequence_Length_Test(TestCase):
