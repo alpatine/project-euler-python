@@ -216,14 +216,20 @@ def prime_factors(number: int) -> Set[int]:
     Prime numbers with a power greater than 1 are not repeated.
     """
     result = set()
+    if number <= 1:
+        return result
+    current_denominator = number
     current_factor = 2
-    while number > 1:
-        quotient, remainder = divmod(number, current_factor)
+    max_factor = floor(sqrt(number))
+    while current_factor <= max_factor:
+        quotient, remainder = divmod(current_denominator, current_factor)
         if remainder == 0:
-            number = quotient
+            current_denominator = quotient
+            max_factor = floor(sqrt(current_denominator))
             result.add(current_factor)
-            current_factor = current_factor - 1
-        current_factor = current_factor + 1
+        else:
+            current_factor = current_factor + 1
+    result.add(current_denominator)
     return result
 
 def primes(upper: int) -> Iterator[int]:
