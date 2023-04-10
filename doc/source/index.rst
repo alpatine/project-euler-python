@@ -21,3 +21,4 @@ published on the Project Euler website.
    :caption: Problem Solutions:
 
    problems/p001
+   problems/p002
