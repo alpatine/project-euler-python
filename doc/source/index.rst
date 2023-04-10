@@ -11,7 +11,13 @@ published on the Project Euler website.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Preliminary Content:
 
    prelim/sum-of-square-numbers
    prelim/fibonacci-formula
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Problem Solutions:
+
+   problems/p001
