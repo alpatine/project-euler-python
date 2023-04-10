@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # TEX working files
-/doc/*/**
-!/doc/*/*.tex
-!/doc/*/*.pdf
+/doc-latex/*/**
+!/doc-latex/*/*.tex
+!/doc-latex/*/*.pdf
