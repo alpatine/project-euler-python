@@ -127,8 +127,3 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
-# TEX working files
-/doc-latex/*/**
-!/doc-latex/*/*.tex
-!/doc-latex/*/*.pdf
