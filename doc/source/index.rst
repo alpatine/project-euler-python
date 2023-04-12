@@ -25,3 +25,4 @@ published on the Project Euler website.
    problems/p003
    problems/p004
    problems/p005
+   problems/p006
