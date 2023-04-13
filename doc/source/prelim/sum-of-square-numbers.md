@@ -123,7 +123,7 @@ Next we make the induction hypothesis (I. H.):
 $$ \text{Suppose } S_k = \sum_{i=1}^{k}i^2 = \frac{k}{6}(k+1)(2k+1) \quad
     \forall k \geq 1 $$
 
-Now we take the induction step by considering the \((k+1)\) case:
+Now we take the induction step by considering the $(k+1)$ case:
 
 $$\begin{aligned}
     \text{Want to show: } \\
