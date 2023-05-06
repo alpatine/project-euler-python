@@ -15,6 +15,7 @@ published on the Project Euler website.
 
    prelim/sum-of-square-numbers
    prelim/fibonacci-formula
+   prelim/generating-prime-numbers
 
 .. toctree::
    :maxdepth: 1
