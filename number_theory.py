@@ -238,14 +238,20 @@ def primes(upper: int) -> Iterator[int]:
     The sequence starts with 2 and continues until upper is reached.
     The value upper is not included in the sequence.
     """
-    prime_list = [True] * upper
+    if upper > 2:
+        yield 2
+
+    upper_odd = upper + 1 - (upper % 2)
+    index_stop = (upper_odd - 3) // 2
+    prime_list = [True] * index_stop
     max_factor = floor(sqrt(upper))
 
-    for i in range(2, upper):
-        if prime_list[i] == True:
-            yield i
-            if i <= max_factor:
-                for j in range(i*i, upper, i):
+    for index in range(0, index_stop):
+        if prime_list[index] == True:
+            factor = 2 * index + 3
+            yield factor
+            if factor <= max_factor:
+                for j in range((factor * factor - 3) // 2, index_stop, factor):
                     prime_list[j] = False
 
 def square_numbers_to(stop: int) -> Iterable[int]:
