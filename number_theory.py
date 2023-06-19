@@ -57,15 +57,6 @@ def divisor_sums_to(number: int) -> Dict[int, int]:
 
     return divisor_sums
 
-def estimate_nth_prime(n: int) -> int:
-    """Estimate the n'th prime number.
-
-    Estimation is based on n * ln(n) because the primes get closer to
-    this value as n gets larger.
-    """
-    # As n gets larger, the nth prime ~ n * ln(n)
-    return int(n * log(n))
-
 def hexagonal_number(n: int) -> int:
     """Calculates the n'th hexagonal number"""
     return n * (2 * n - 1)
@@ -144,11 +135,21 @@ def is_triangle_number(number: int) -> bool:
 
 def nth_prime(n: int) -> int:
     """Calculate the n'th prime number."""
-    if n == 1: return 2
-    if n == 2: return 3
-    estimate = estimate_nth_prime(n)
-    #return list(primes(2 * estimate))
-    return list(islice(primes(2 * estimate), n - 1, n))[0]
+    small_primes = [2, 3, 5, 7, 11, 13]
+    if n <= 6: return small_primes[n-1]
+    
+    lower_bound, upper_bound = nth_prime_bounds(n)
+    return list(islice(primes(upper_bound), n - 1, n))[0]
+
+def nth_prime_bounds(n: int) -> tuple[int,int]:
+    """Estimate the n'th prime number.
+
+    Returns a lower and an upper bound on the value of the nth prime.
+    """
+    # As n gets larger, the nth prime ~ n * ln(n)
+    upper_bound = ceil(n * (log(n) + log(log(n))))
+    lower_bound = upper_bound - n
+    return (lower_bound, upper_bound)
 
 def octagonal_numbers_to(stop: int) -> Iterable[int]:
     """Generates octagonal numbers up to stop (exclusive)"""

@@ -199,6 +199,9 @@ class Nth_Prime_Test(TestCase):
     
     def test_nth_prime_6(self):
         self.assertEqual(nth_prime(6), 13)
+    
+    def test_nth_prime_1000(self):
+        self.assertEqual(nth_prime(1000), 7919)
 
 class Octagonal_Numbers_To_Test(TestCase):
     def test_octagonal_numbers_to_100(self):
