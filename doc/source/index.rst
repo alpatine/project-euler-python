@@ -27,3 +27,5 @@ published on the Project Euler website.
    problems/p004
    problems/p005
    problems/p006
+   problems/p007
+   
