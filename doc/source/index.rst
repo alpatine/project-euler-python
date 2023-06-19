@@ -28,4 +28,4 @@ published on the Project Euler website.
    problems/p005
    problems/p006
    problems/p007
-   
+   problems/p008
