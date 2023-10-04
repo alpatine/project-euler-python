@@ -16,6 +16,7 @@ published on the Project Euler website.
    prelim/sum-of-square-numbers
    prelim/fibonacci-formula
    prelim/generating-prime-numbers
+   prelim/generating-pythagorean-triples
 
 .. toctree::
    :maxdepth: 1
