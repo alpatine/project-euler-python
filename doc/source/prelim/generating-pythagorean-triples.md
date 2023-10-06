@@ -12,7 +12,7 @@ multiplying $a$, $b$, and $c$ by a positive integer $k$.
 
 $$
 \begin{aligned}
-    \text{Given} && a, b, c, k &\in \mathbb{Z}_{>0}
+    \text{Given} && a, b, c, k &\in \mathbb{N}
         && \text{positive integers} \\
     \text{Such that} && a^2 + b^2 &= c^2
         && \text{$(a, b, c)$ is a pythagorean triple} \\
@@ -41,7 +41,7 @@ $$
     \text{Proof} &&&&a^2 + b^2 &< a^2 + b^2 + 2ab \\
     &&\Rightarrow && c^2 &< (a+b)^2 \\
     &&\Rightarrow && |c| &< |a + b| \\
-    &&\Rightarrow && c &< a + b && a, b, c \in \mathbb{Z}_{>0}
+    &&\Rightarrow && c &< a + b && a, b, c \in \mathbb{N}
 \end{aligned}
 $$
 
@@ -152,7 +152,7 @@ $$
     && a_A + b_A + c_A &= (a-2b+2c) + (2a-b+2c) + (2a-2b+3c) \\
     &&&= 5a - 5b + 7c \\
     &&&= 5a - 5b + 6c + c \\
-    &&&> 5a - 5b + 6b + c && b < c \\
+    &&&> 5a - 5b + 6b + c \qquad (b < c) \\
     &&&= 5a + b + c \\
     &&&> a + b + c \\ \\
     \text{Claim: } \\
@@ -167,7 +167,7 @@ $$
     && a_C + b_C + c_C &= (-a+2b+2c) + (-2a+b+2c) + (-2a+2b+3c) \\
     &&&= -5a + 5b + 7c \\
     &&&= -5a + 6c + 5b + c \\
-    &&&> -5a +6a + 5b + c && a < c \\
+    &&&> -5a +6a + 5b + c \qquad (a < c) \\
     &&&= a + 5b + c \\
     &&&> a + b + c
 \end{aligned}

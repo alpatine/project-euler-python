@@ -16,10 +16,10 @@ One approach for building a list of prime numbers would be to start with a list
 of all candidate numbers, and then test each number individually to see if it is
 prime.
 
-All natural numbers can be written as a unique (up to ordering) product of prime
-numbers. A prime number will only contain one copy of itself in its product. A
-composite number will contain multiple primes in the product. One is neither
-prime nor composite - it is the unit of the natural numbers.
+All natural numbers greater than 1 can be written as a unique (up to ordering)
+product of prime numbers. A prime number will only contain one copy of itself in
+its product. A composite number will contain multiple primes in the product. One
+is neither prime nor composite - it is the unit of the natural numbers.
 
 $$\begin{aligned}
     \text{Unit:} && 1 & \\
@@ -28,8 +28,8 @@ $$\begin{aligned}
     \text{Composite:} && 9 &= 3 * 3 = 3^2
 \end{aligned}$$
 
-Consider the number 47. To check if it is prime, we can simply check if any
-of the numbers less than 47 divides 47. Using division with remainder:
+Consider the number 47. To check if it is prime, we can simply check if any of
+the numbers less than 47 divides 47. Using division with remainder:
 
 $$\begin{aligned}
     47 = 23 \cdot 2 + 1 \Rightarrow 2 \nmid 47 \\
@@ -350,7 +350,7 @@ def primes(upper: int) -> Iterator[int]:
 ```
 
 While this implementation is correct and accurate to the algorithm described
-above, it can be made faster. We know there is only 1 even prime number (2), so
+above, it can be made faster. We know there is only 1 even prime number, 2, so
 there is no point in storing or processing any larger even numbers. We also know
 the smallest odd prime is 3. Putting this together we should start the list at
 3, with each subsequent element representing the next odd number.
@@ -383,13 +383,14 @@ $$
 
 This gives us the following maps between array index and number represented. In
 this document we will include zero in the natural numbers.
+
 $$
 \begin{aligned}
     \text{Given:} & \\
-    && \mathbb{N} &= \{0, 1, 2, 3, \dots\} && \text{the natural numbers} \\
-    && i &\in \mathbb{N}
+    && \mathbb{Z}_{\geq 0} &= \{0, 1, 2, 3, \dots\} && \text{the natural numbers and zero} \\
+    && i &\in \mathbb{Z}_{\geq 0}
         && \text{array index in the primes list} \\
-    && n_i &\in \mathbb{N} &&\text{number represented at index $i$} \\
+    && n_i &\in \mathbb{Z}_{\geq 0} &&\text{number represented at index $i$} \\
     \text{Then:} & \\
     n_i &= 2i + 3 && \Leftrightarrow &i &= \frac{n_i - 3}{2}
     
@@ -416,12 +417,12 @@ number greater than or equal to $u$:
 $$
 \begin{aligned}
     \text{With:} & \\
-    && u \gt 3 &\in \mathbb{N}
+    && u \gt 3 &\in \mathbb{Z}_{\geq 0}
         && \text{the upper number passed to the algorithm} \\
-    && u_o &\in \mathbb{N} && \text{smallest odd number not in list} \\
-    && n_i &\in \mathbb{N}
+    && u_o &\in \mathbb{Z}_{\geq 0} && \text{smallest odd number not in list} \\
+    && n_i &\in \mathbb{Z}_{\geq 0}
         && \text{number (odd) represented by index $i$} \\
-    && i &\in \mathbb{N} && \text{any index in the list} \\
+    && i &\in \mathbb{Z}_{\geq 0} && \text{any index in the list} \\
     \text{Then:} & \\
     && u_o &= \begin{cases}
         u &\text{$u$ odd} \\
@@ -430,7 +431,7 @@ $$
     && n_i &< u_o \\
     \Rightarrow && 2i + 3 &< u_o \\
     \Rightarrow && 2i &< u_o - 3 \\
-    \Rightarrow && i &< \frac{u_o-3}{2} \in \mathbb{N}\\
+    \Rightarrow && i &< \frac{u_o-3}{2} \in \mathbb{Z}_{\geq 0}\\
     
 \end{aligned}
 $$
@@ -447,10 +448,10 @@ as composite is the square of that prime.
 $$
 \begin{aligned}
 \text{Given:} \\
-&& n_p &\in \mathbb{N} && \text{the prime found} \\
-&& i &\in \mathbb{N} && \text{index of the prime found} \\
-&& n_p^2 = n_m &\in \mathbb{N} && \text{the next multiple} \\
-&& m &\in \mathbb{N} && \text{index of the next multiple} \\
+&& n_p &\in \mathbb{Z}_{\geq 0} && \text{the prime found} \\
+&& i &\in \mathbb{Z}_{\geq 0} && \text{index of the prime found} \\
+&& n_p^2 = n_m &\in \mathbb{Z}_{\geq 0} && \text{the next multiple} \\
+&& m &\in \mathbb{Z}_{\geq 0} && \text{index of the next multiple} \\
 \text{Then:} & \\
 && n_m &= 2m + 3 \\
 \Rightarrow && m &= \frac{n_m-3}{2} \\

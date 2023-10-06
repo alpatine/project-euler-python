@@ -1,8 +1,9 @@
 # A Formula for Summing Square Numbers
-We start the sequence with $1^2=1$. The next term is $1^2+2^2=5$, the 3rd term
-is $1^2+2^2+3^2=14$, and so forth:
+To find this formula we will examine the sequence of sums of square numbers. We
+start the sequence with $1^2=1$. The next term is $1^2+2^2=5$, the 3rd term is
+$1^2+2^2+3^2=14$, and so forth:
 
-$$1, 5, 14, 30, 55, 91, 140, 204, 285, 385, \dots $$
+$$ 1, 5, 14, 30, 55, 91, 140, 204, 285, 385, \dots $$
 
 We can define the sequence as follows:
 
@@ -11,54 +12,54 @@ $$\begin{aligned}
     \text{where } S_n &= \sum_{k=1}^{n}k^2
 \end{aligned}$$
 
-If the sequence can be represented by a polynomial, then repeated application of
-the difference operator on the terms will eventually reveal a constant
-difference. The number of applications required to arrive at the constant
-difference will be the degree of the polynomial.
+Assuming that the sequence can be represented by a polynomial, then repeated
+application of the forward difference operator on the sequence will eventually
+result in a constant sequence. The number of applications required to arrive at
+the constant sequence will be equal to the degree of the polynomial.
 
-The difference operator works by generating a new sequence, made from the
-difference between successive terms. For example, the difference operator
-applied to $\{1, 3, 5\}$ will yield $\{2, 2\}$ because the difference between 1
-and 3 is 2, and the difference between 3 and 5 is 2.
+When the forward difference operator is applied to a sequence, it returns a new
+sequence made from the difference between successive terms. For example, the
+difference operator applied to $\{1, 3, 5\}$ will yield $\{2, 2\}$ because the
+difference between 1 and 3 is 2, and the difference between 3 and 5 is 2.
 
 Repeatedly applying the difference operator to our sequence:
 
 $$\begin{aligned}
     S &= \{1, 5, 14, 30, 55, 91, \dots\} \\
-    \Delta S &= \{5-1, 14-5, 30-14, 55-30, 91-55, \dots\} \\
+    \Delta S &= \{(5-1), (14-5), (30-14), (55-30), (91-55), \dots\} \\
     &= \{4, 9, 16, 25, 36, \dots\} \\
-    \Delta^2S &= \{9-4, 16-9, 25-16, 36-25, 36, \dots\} \\
-    &= \{5, 7, 9, 11, 13, \dots\} \\
-    \Delta^3S &= \{7-5, 9-7, 11-9, 13-11, 13, \dots\} \\
-    &= \{2, 2, 2, 2, 2, \dots\}
+    \Delta^2S &= \{(9-4), (16-9), (25-16), (36-25), \dots\} \\
+    &= \{5, 7, 9, 11, \dots\} \\
+    \Delta^3S &= \{(7-5), (9-7), (11-9), \dots\} \\
+    &= \{2, 2, 2, \dots\}
 \end{aligned}$$
 
-Three applications of the difference operator has created a constant difference,
-implying that the terms of our sequence $S$ can be represented with a cubic
-polynomial.
+Three applications of the difference operator has resulted in a constant
+sequence, implying that the terms of our sequence $S$ can be represented with a
+polynomial of degree three.
 
 $$\begin{aligned}
     \text{Assume: } S_n &= an^3+bn^2+cn+d \\
 \end{aligned}$$
 
-Applying the difference operator three times to our polynomial:
+Applying the difference operator three times to the assumed polynomial:
 
 $$\begin{aligned}
     S_n &= an^3+bn^2+cn+d \\
-    \Delta S_n &= S_{n+1} - S_n \\
+    (\Delta S)_n &= S_{n+1} - S_n \\
     &= a(n+1)^3 + b(n+1)^2 + c(n+1) + d - (an^3 + bn^2 + cn + d) \\
     &= a(n^3 + 3n^2 + 3n + 1) + b(n^2 + 2n + 1) + c(n+1) + d \\
     & \quad - an^3 - bn^2 - cn - d \\
     &= a(3n^2+3n+1)+b(2n+1)+c \\
-    \Delta^2 S_n &= \Delta (\Delta S_n) \\
-    &= \Delta S_{n+1} - \Delta S_n \\
+    (\Delta^2 S)_n &= (\Delta (\Delta S))_n \\
+    &= (\Delta S)_{n+1} - (\Delta S)_n \\
     &= a(3(n+1)^2 + 3(n+1) + 1) + b(2(n+1)+1) + c \\
     & \quad - (a(3n^2+3n+1)+b(2n+1)+c) \\
     &= a(3n^2 + 6n + 3 + 3n + 3 + 1 -3n^2 -3n -1) + b(2n + 2 + 1 - 2n - 1) \\
     & \quad + c(1-1) \\
     &= a(6n+6) + 2b \\
-    \Delta^3 S_n &= \Delta(\Delta^2 S_n) \\
-    &= \Delta^2 S_{n+1} - \Delta^2 S_n \\
+    (\Delta^3 S)_n &= (\Delta(\Delta^2 S))_n \\
+    &= (\Delta^2 S)_{n+1} - (\Delta^2 S)_n \\
     &= a(6(n+1)+6) + 2b - (a(6n + 6) + 2b) \\
     &= a(6n + 6 + 6 -6n -6) + b(2 - 2) \\
     &= 6a \\
@@ -69,11 +70,11 @@ Evaluate the difference operator equations at their first element:
 $$\begin{aligned}
     S_1 &= a(1)^3+b(1)^2+c(1)+d \\
     1 &= a + b + c + d \\
-    \Delta S_1 &= a(3(1)^2+3(1)+1)+b(2(1)+1)+c \\
+    (\Delta S)_1 &= a(3(1)^2+3(1)+1)+b(2(1)+1)+c \\
     4 &= 7a + 3b + c \\
-    \Delta^2 S_1 &= a(6(1)+6) + 2b \\
+    (\Delta^2 S)_1 &= a(6(1)+6) + 2b \\
     5 &= 12a + 2b \\
-    \Delta^3 S_1 &= 6a \\
+    (\Delta^3 S)_1 &= 6a \\
     2 &= 6a
 \end{aligned}$$
 
