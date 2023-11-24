@@ -13,6 +13,7 @@ published on the Project Euler website.
    :maxdepth: 1
    :caption: Preliminary Content:
 
+   prelim/triangle-number-formula
    prelim/sum-of-square-numbers
    prelim/fibonacci-formula
    prelim/generating-prime-numbers
