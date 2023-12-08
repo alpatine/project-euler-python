@@ -94,7 +94,7 @@ $$\begin{aligned}
     &= x + x\sum_{n=1}^\infty F_nx^n + x^2\sum_{n=0}^\infty F_nx^n
         && \text{(reindex)} \\
     &= x + x\sum_{n=0}^\infty F_nx^n + x^2\sum_{n=0}^\infty F_nx^n
-        && \text{(add \(F_0 = 0\))}
+        && \text{(add $F_0 = 0$)}
 \end{aligned}$$
 
 Notice that the second and third terms contain the original generating function
