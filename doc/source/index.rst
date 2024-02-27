@@ -34,4 +34,5 @@ published on the Project Euler website.
    problems/p009
    problems/p010
    problems/p011
+   problems/p012
    
