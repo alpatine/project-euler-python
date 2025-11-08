@@ -12,6 +12,7 @@ prelim/sum-of-square-numbers
 prelim/fibonacci-formula
 prelim/generating-prime-numbers
 prelim/generating-pythagorean-triples
+prelim/numbers-to-words
 ```
 
 ```{toctree}
@@ -34,4 +35,5 @@ problems/p013
 problems/p014
 problems/p015
 problems/p016
+problems/p017
 ```
