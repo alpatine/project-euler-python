@@ -309,20 +309,20 @@ class Prime_Factors_Test(TestCase):
     def test_prime_factors_20(self):
         self.assertEqual(list(prime_factors(20)), [2, 5])
 
-class Primes_Test(TestCase):
-    def test_primes_0(self):
+class Primes_To_Test(TestCase):
+    def test_primes_to_0(self):
         self.assertEqual(list(primes_to(0)), [])
     
-    def test_primes_1(self):
+    def test_primes_to_1(self):
         self.assertEqual(list(primes_to(1)), [])
 
-    def test_primes_2(self):
+    def test_primes_to_2(self):
         self.assertEqual(list(primes_to(2)), [])
     
-    def test_primes_3(self):
+    def test_primes_to_3(self):
         self.assertEqual(list(primes_to(3)), [2])
     
-    def test_primes_10(self):
+    def test_primes_to_10(self):
         self.assertEqual(list(primes_to(10)), [2, 3, 5, 7])
 
 class Square_Numbers_To_Test(TestCase):
