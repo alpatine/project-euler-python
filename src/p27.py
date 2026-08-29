@@ -1,4 +1,4 @@
-from number_theory import is_prime, primes
+from number_theory import is_prime, primes_to
 def p27(a_start: int, a_stop: int, b_start: int, b_stop: int) -> int:
     # b needs to be prime to get a prime when n == 0, so b >= 2
     b_start = max(b_start, 2)
@@ -6,7 +6,7 @@ def p27(a_start: int, a_stop: int, b_start: int, b_stop: int) -> int:
     # when n == b then all terms are a multiple of b, so this is the
     # limit of what needs to be searched
     largest_output = (b_stop - 1) * ((b_stop - 1) + (a_stop - 1) + 1)
-    prime_factors = list(primes(largest_output))
+    prime_factors = list(primes_to(largest_output))
 
     # calcuate offset for start of a: a must be odd, unless b == 2
     a_start_even = a_start % 2 == 0

@@ -1,7 +1,7 @@
-from number_theory import count_divisors, primes
+from number_theory import count_divisors, primes_to
 
 def p12(divisor_target: int) -> int:
-    prime_number_list = list(primes(1000))
+    prime_number_list = list(primes_to(1000))
     for n in range (1, 2 ** 30):
         triangle_number = n * (n + 1) // 2
         number_of_divisors = count_divisors(triangle_number, prime_number_list)

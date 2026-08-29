@@ -1,10 +1,10 @@
 from itertools import combinations
 from typing import Any
-from number_theory import is_prime, primes
+from number_theory import is_prime, primes_to
 from math import comb
 
 def p60(set_size: int, max_include_prime: int, max_check_prime: int) -> int:
-    check_primes_list = list(primes(max_check_prime))[1:]
+    check_primes_list = list(primes_to(max_check_prime))[1:]
     include_primes_list = [p for p in check_primes_list
                            if p < max_include_prime]
     concat_map = prepare_concat_map(include_primes_list, check_primes_list)

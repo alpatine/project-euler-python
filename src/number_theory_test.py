@@ -9,7 +9,7 @@ from number_theory import (composites, count_divisors, divisor_sums_to,
                            is_square_number, is_triangle_number, nth_prime,
                            octagonal_numbers_to, pentagonal_number,
                            pentagonal_numbers_to, prime_ceil_to,
-                           prime_factor_count_to, prime_factors, primes,
+                           prime_factor_count_to, prime_factors, primes_to,
                            square_numbers_to, totients_to, triangle_numbers_to)
 
 
@@ -259,7 +259,7 @@ class Prime_Ceil_To(TestCase):
         self.assertEqual(prime_ceil_to(51), expected)
     
     def test_50_supplied_primes(self):
-        list_of_primes = list(primes(60))
+        list_of_primes = list(primes_to(60))
         expected = {
             1: 2, 2: 2, 3: 3, 4: 5, 5: 5,
             6: 7, 7: 7, 8: 11, 9: 11, 10: 11,
@@ -311,19 +311,19 @@ class Prime_Factors_Test(TestCase):
 
 class Primes_Test(TestCase):
     def test_primes_0(self):
-        self.assertEqual(list(primes(0)), [])
+        self.assertEqual(list(primes_to(0)), [])
     
     def test_primes_1(self):
-        self.assertEqual(list(primes(1)), [])
+        self.assertEqual(list(primes_to(1)), [])
 
     def test_primes_2(self):
-        self.assertEqual(list(primes(2)), [])
+        self.assertEqual(list(primes_to(2)), [])
     
     def test_primes_3(self):
-        self.assertEqual(list(primes(3)), [2])
+        self.assertEqual(list(primes_to(3)), [2])
     
     def test_primes_10(self):
-        self.assertEqual(list(primes(10)), [2, 3, 5, 7])
+        self.assertEqual(list(primes_to(10)), [2, 3, 5, 7])
 
 class Square_Numbers_To_Test(TestCase):
     def test_square_numbers_to_100(self):

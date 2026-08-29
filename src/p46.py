@@ -1,8 +1,8 @@
 from math import floor, sqrt
-from number_theory import composites, primes
+from number_theory import composites, primes_to
 
 def p46(upper: int) -> int:
-    prime_list = list(primes(upper))
+    prime_list = list(primes_to(upper))
 
     for c in composites(upper):
         if c % 2 == 1:  # odd

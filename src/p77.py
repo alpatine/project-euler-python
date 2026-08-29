@@ -1,8 +1,8 @@
-from number_theory import primes
+from number_theory import primes_to
 from p31 import p31
 
 def p77(target_ways: int, search_stop: int) -> int:
-    prime_list = list(primes(search_stop))
+    prime_list = list(primes_to(search_stop))
     for trial_number in range(1, search_stop):
         ways = p31(trial_number, prime_list)
         if ways >= target_ways:

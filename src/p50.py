@@ -1,10 +1,10 @@
-from number_theory import prime_ceil_to, primes
+from number_theory import prime_ceil_to, primes_to
 
 def p50(stop: int) -> int:
     #prime_list = list(primes(stop))
     #next_prime_map = prime_ceil_to(stop)
 
-    prime_list = list(primes(stop * 2))
+    prime_list = list(primes_to(stop * 2))
     next_prime_map = prime_ceil_to(stop, prime_list)
 
     prime_list_len = len(prime_list)

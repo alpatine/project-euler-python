@@ -1,7 +1,7 @@
-from number_theory import is_prime, primes
+from number_theory import is_prime, primes_to
 
 def p37():
-    prime_numbers = list(primes(740000))
+    prime_numbers = list(primes_to(740000))
     truncatable_prime_list = []
     for prime in prime_numbers:
         if prime < 10: continue

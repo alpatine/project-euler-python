@@ -1,5 +1,5 @@
 from math import floor, log
-from number_theory import primes
+from number_theory import primes_to
 
 def p29(base_stop: int, exponent_stop: int) -> int:
     # ranges: 2 <= base < base_stop

@@ -1,9 +1,9 @@
-from number_theory import primes
+from number_theory import primes_to
 
 
 def p69(stop: int) -> int:
     running_product = 1
-    for prime_number in primes(stop):
+    for prime_number in primes_to(stop):
         if running_product * prime_number < stop:
             running_product *= prime_number
         else:

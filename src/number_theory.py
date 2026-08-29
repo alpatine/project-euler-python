@@ -30,7 +30,7 @@ def count_divisors(number: int, prime_numbers: Iterator[int] = None) -> int:
     prime_numbers parameter.
     """
     if prime_numbers is None:
-        prime_numbers = primes(number + 1)
+        prime_numbers = primes_to(number + 1)
 
     divisors = 1
     for prime in prime_numbers:
@@ -114,7 +114,7 @@ def is_prime(n: int, list_of_factors: List[int] = None) -> bool:
     if n < 2: return False
     max_factor = floor(sqrt(n))
     if list_of_factors is None:
-        list_of_factors = primes(max_factor + 1)
+        list_of_factors = primes_to(max_factor + 1)
     
     for factor in list_of_factors:
         if factor > max_factor: break
@@ -139,7 +139,7 @@ def nth_prime(n: int) -> int:
     if n <= 6: return small_primes[n-1]
     
     lower_bound, upper_bound = nth_prime_bounds(n)
-    return list(islice(primes(upper_bound), n - 1, n))[0]
+    return list(islice(primes_to(upper_bound), n - 1, n))[0]
 
 def nth_prime_bounds(n: int) -> tuple[int,int]:
     """Estimate the n'th prime number.
@@ -184,7 +184,7 @@ def prime_ceil_to(
     Example: Key 5 will have the value 5 because 5 is the smallest prime
     that is greater than or equal to 5 (equal to in this case)."""
     if list_of_primes == None:
-        list_of_primes = list(primes(stop * 2)) # bertrand's postulate
+        list_of_primes = list(primes_to(stop * 2)) # bertrand's postulate
     result = {}
     key_value_start = 1
     for prime in list_of_primes: 
@@ -204,7 +204,7 @@ def prime_factor_count_to(stop: int) -> Dict[int, int]:
     the key.
     """
     prime_factor_counts = {n: 0 for n in range(1, stop)}
-    for base_prime in primes(stop):
+    for base_prime in primes_to(stop):
         for number in range(base_prime, stop, base_prime):
             prime_factor_counts[number] += 1
     
@@ -233,7 +233,7 @@ def prime_factors(number: int) -> Set[int]:
     result.add(current_denominator)
     return result
 
-def primes(upper: int) -> Iterator[int]:
+def primes_to(upper: int) -> Iterator[int]:
     """Generate the prime numbers.
 
     The sequence starts with 2 and continues until upper is reached.
@@ -265,7 +265,7 @@ def square_numbers_to(stop: int) -> Iterable[int]:
 def totients_to(stop: int) -> Dict[int, int]:
     """Generates euler totients up to stop (exclusive)"""
     totient_set = {n: n for n in range(1, stop)}
-    for prime_factor in primes(stop):
+    for prime_factor in primes_to(stop):
         for number in range(prime_factor, stop, prime_factor):
             totient_set[number] = totient_set[number] * (prime_factor - 1) // prime_factor
 

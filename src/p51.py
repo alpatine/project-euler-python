@@ -1,9 +1,9 @@
 from collections import Counter
 from itertools import combinations, dropwhile
-from number_theory import primes
+from number_theory import primes_to
 
 def p51(stop: int) -> int:
-    prime_dict = {n: True for n in dropwhile(lambda x: x < 1000, primes(stop))}
+    prime_dict = {n: True for n in dropwhile(lambda x: x < 1000, primes_to(stop))}
     for prime in prime_dict:
         prime_str = str(prime)
         for most_common_number, most_common_count in Counter(prime_str).most_common():

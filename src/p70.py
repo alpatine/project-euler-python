@@ -1,7 +1,7 @@
 from collections import Counter
 from itertools import dropwhile
 from math import floor, sqrt
-from number_theory import primes, totients_to
+from number_theory import primes_to, totients_to
 
 def p70(stop: int) -> int:
     PRIME_SPREAD = 1000
@@ -11,7 +11,7 @@ def p70(stop: int) -> int:
     # prime_numbers = [p for p in primes(sqrt_stop + PRIME_SPREAD)
     #                 if p > sqrt_stop - PRIME_SPREAD]
     prime_numbers = list(dropwhile(lambda p: p < sqrt_stop - PRIME_SPREAD,
-                                   primes(sqrt_stop + PRIME_SPREAD)))
+                                   primes_to(sqrt_stop + PRIME_SPREAD)))
     
     for p in prime_numbers:
         for q in prime_numbers:

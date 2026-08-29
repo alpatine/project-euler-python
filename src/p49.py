@@ -1,9 +1,9 @@
 from typing import List
 from digits import is_anagram
-from number_theory import prime_ceil_to, primes
+from number_theory import prime_ceil_to, primes_to
 
 def p49() -> List[List[int]]:
-    list_of_primes = [n for n in primes(10000) if n >= 1000]
+    list_of_primes = [n for n in primes_to(10000) if n >= 1000]
     next_prime_map = prime_ceil_to(10000)
     number_of_primes = len(list_of_primes)
     result = []

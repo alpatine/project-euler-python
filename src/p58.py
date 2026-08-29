@@ -1,7 +1,7 @@
-from number_theory import is_prime, primes
+from number_theory import is_prime, primes_to
 
 def p58(max_ratio: float) -> int:
-    prime_list = list(primes(1000000))
+    prime_list = list(primes_to(1000000))
     layer = 0
     ratio = 1
     prime_count = 0

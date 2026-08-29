@@ -1,8 +1,8 @@
-from number_theory import is_prime, primes
+from number_theory import is_prime, primes_to
 
 def p35(stop: int) -> int:
     circular_primes = set()
-    primes_to_check = list(primes(stop))
+    primes_to_check = list(primes_to(stop))
     for prime in primes_to_check:
         prime_str = str(prime)
         
