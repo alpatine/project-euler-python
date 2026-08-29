@@ -2,7 +2,7 @@ from unittest import TestCase
 from p67 import load_triangle, p67
 
 class P67_Test(TestCase):
-    GIVEN_PATH = './data/p067_triangle_given.txt'
+    GIVEN_PATH = './data/p0067_triangle_given.txt'
     def test_load_triangle(self):
         path = P67_Test.GIVEN_PATH
         expected = [[3],
@@ -16,5 +16,5 @@ class P67_Test(TestCase):
         self.assertEqual(p67(path), 23)
 
     def test_result(self):
-        path = './data/p067_triangle.txt'
+        path = './data/p0067_triangle.txt'
         self.assertEqual(p67(path), 7273)

@@ -13,4 +13,4 @@ def p54(data_file_path: str) -> int:
     return player_1_wins
 
 if __name__ == '__main__':
-    print(p54('./data/p054_poker.txt'))
+    print(p54('./data/p0054_poker.txt'))

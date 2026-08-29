@@ -3,7 +3,7 @@ from number_words import word_score
 
 
 def p42() -> int:
-    with open('./data/p042_words.txt') as file:
+    with open('./data/p0042_words.txt') as file:
         words = file.read().replace('"', '').split(',')
     
     triangle_words = [word for word in words

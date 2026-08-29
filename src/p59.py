@@ -1,7 +1,7 @@
 from collections import Counter
 
 def p59():
-    with open('./data/p059_cipher.txt') as file:
+    with open('./data/p0059_cipher.txt') as file:
         message = list(map(int, file.read().split(',')))
     
     # we are given that the key length is 3

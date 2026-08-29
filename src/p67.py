@@ -12,5 +12,5 @@ def load_triangle(path: str) -> list[list[int]]:
         return [list(map(int, line.split())) for line in triangle_file]
 
 if __name__ == '__main__':
-    print(p67('./data/p067_triangle_given.txt'))
-    print(p67('./data/p067_triangle.txt'))
+    print(p67('./data/p0067_triangle_given.txt'))
+    print(p67('./data/p0067_triangle.txt'))

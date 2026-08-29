@@ -3,7 +3,7 @@ from p61 import bucket_numbers, extend_cycle, p61
 
 class P61_Test(TestCase):
     def test_result(self):
-        self.assertEquals(p61(), 28684)
+        self.assertEqual(p61(), 28684)
     
     def test_bucket_numbers(self):
         source = range(1111, 2111, 75)

@@ -19,22 +19,22 @@ prelim/numbers-to-words
 :maxdepth: 1
 :caption: Problem Solutions
 
-problems/p001
-problems/p002
-problems/p003
-problems/p004
-problems/p005
-problems/p006
-problems/p007
-problems/p008
-problems/p009
-problems/p010
-problems/p011
-problems/p012
-problems/p013
-problems/p014
-problems/p015
-problems/p016
-problems/p017
-problems/p018
+problems/p0001
+problems/p0002
+problems/p0003
+problems/p0004
+problems/p0005
+problems/p0006
+problems/p0007
+problems/p0008
+problems/p0009
+problems/p0010
+problems/p0011
+problems/p0012
+problems/p0013
+problems/p0014
+problems/p0015
+problems/p0016
+problems/p0017
+problems/p0018
 ```

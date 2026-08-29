@@ -1,6 +1,6 @@
 def p22() -> int:
     # open the file
-    with open('./data/p022_names.txt', 'r') as names_file:
+    with open('./data/p0022_names.txt', 'r') as names_file:
         names_list = [name.strip('"') for name in names_file.read().split(',')]
     
     names_list.sort()
