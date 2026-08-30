@@ -1,4 +1,5 @@
-from itertools import islice
+from functools import cache
+from itertools import count, islice
 from math import ceil, floor, log, sqrt
 from typing import Dict, Iterable, Iterator, List, Set
 
@@ -157,6 +158,29 @@ def octagonal_numbers_to(stop: int) -> Iterable[int]:
     for base in range(1, limit):
         octagonal_number = base * (3 * base - 2)
         yield octagonal_number
+
+@cache
+def partitions(n: int) -> int:
+    """Calculate the number of partitions of n.
+    
+    Negative inputs return 0. Zero input returns 1.
+    See: https://en.wikipedia.org/wiki/Partition_function_(number_theory)
+    """
+    if n < 0: return 0
+    if n == 0: return 1
+
+    # the recurrence relation sums over all positive and negative integers (not
+    # including zero).
+    running_sum = 0
+    for k in count(1):
+        plus_minus = 1 if k % 2 == 1 else -1
+        positive_k_part = partitions(n - pentagonal_number(k))
+        negative_k_part = partitions(n - pentagonal_number(-k))
+        if positive_k_part == 0 and negative_k_part == 0:
+            break
+        running_sum += plus_minus * (positive_k_part + negative_k_part)
+
+    return running_sum
 
 def pentagonal_number(n: int) -> int:
     """Calculates the n'th pentagonal number"""

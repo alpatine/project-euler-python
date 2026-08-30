@@ -7,7 +7,7 @@ from number_theory import (composites, count_divisors, divisor_sums_to,
                            is_hexagonal_number, is_lychrel_number,
                            is_octagonal_number, is_pentagonal_number, is_prime,
                            is_square_number, is_triangle_number, nth_prime,
-                           octagonal_numbers_to, pentagonal_number,
+                           octagonal_numbers_to, partitions, pentagonal_number,
                            pentagonal_numbers_to, prime_ceil_to,
                            prime_factor_count_to, prime_factors, primes_to,
                            square_numbers_to, totients_to, triangle_numbers_to)
@@ -208,6 +208,19 @@ class Octagonal_Numbers_To_Test(TestCase):
         expected = [1, 8, 21, 40, 65, 96]
         octagonals = list(octagonal_numbers_to(100))
         self.assertEqual(octagonals, expected)
+
+class Partitions_Test(TestCase):
+    def test_neg_1(self):
+        self.assertEqual(partitions(-1), 0)
+
+    def test_0(self):
+        self.assertEqual(partitions(0), 1)
+
+    def test_first_10(self):
+        self.assertEqual(
+            [partitions(n) for n in range(1, 11)],
+            [1, 2, 3, 5, 7, 11, 15, 22, 30, 42]
+        )
 
 class Pentagonal_Number_Test(TestCase):
     def test_1_10(self):
