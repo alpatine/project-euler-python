@@ -2,12 +2,13 @@ from fractions import Fraction
 from unittest import TestCase
 
 from number_theory import (composites, count_divisors, divisor_sums_to,
-                           heptagonal_numbers_to, hexagonal_number,
-                           hexagonal_numbers_to, is_heptagonal_number,
-                           is_hexagonal_number, is_lychrel_number,
-                           is_octagonal_number, is_pentagonal_number, is_prime,
-                           is_square_number, is_triangle_number, nth_prime,
-                           octagonal_numbers_to, partitions, pentagonal_number,
+                           divisors_to, heptagonal_numbers_to,
+                           hexagonal_number, hexagonal_numbers_to,
+                           is_heptagonal_number, is_hexagonal_number,
+                           is_lychrel_number, is_octagonal_number,
+                           is_pentagonal_number, is_prime, is_square_number,
+                           is_triangle_number, nth_prime, octagonal_numbers_to,
+                           partitions, pentagonal_number,
                            pentagonal_numbers_to, prime_ceil_to,
                            prime_factor_count_to, prime_factors, primes_to,
                            square_numbers_to, totients_to, triangle_numbers_to)
@@ -67,6 +68,22 @@ class Divisor_Sums_To_Test(TestCase):
         self.assertEqual(divisor_sums_to(11),
             { 0:0, 1: 0, 2: 1, 3: 1, 4: 3, 5: 1,
               6: 6, 7: 1, 8: 7, 9: 4, 10: 8})
+
+class Divisors_To(TestCase):
+    def test_2(self):
+        self.assertEqual(divisors_to(2), {1: [1]})
+    
+    def test_3(self):
+        self.assertEqual(divisors_to(3), {1: [1], 2: [1, 2]})
+    
+    def test_4(self):
+        self.assertEqual(divisors_to(4), {1: [1], 2: [1, 2], 3: [1, 3]})
+    
+    def test_11(self):
+        self.assertEqual(divisors_to(11),
+            {1: [1], 2: [1, 2], 3: [1, 3], 4: [1, 2, 4], 5: [1, 5],
+             6: [1, 2, 3, 6], 7: [1, 7], 8: [1, 2, 4, 8], 9: [1, 3, 9],
+             10: [1, 2, 5, 10]})
 
 class Hexagonal_Number_Test(TestCase):
     def test_1_10(self):

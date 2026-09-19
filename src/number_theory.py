@@ -1,3 +1,4 @@
+from collections import defaultdict
 from functools import cache
 from itertools import count, islice
 from math import ceil, floor, log, sqrt
@@ -57,6 +58,19 @@ def divisor_sums_to(number: int) -> Dict[int, int]:
             divisor_sums[multiple_of_n] += n
 
     return divisor_sums
+
+def divisors_to(number: int) -> dict[int, list[int]]:
+    """Returns a dictionary of numbers with the list of their divisors, stopping before number
+    
+    Divisors of a number are the numbers less than that number that divide
+    evenly into it e.g. the divisors of 10 are: 1, 2, 5 and the sum is 8.
+    """
+    divisor_lists: dict[int, list[int]] = defaultdict(list)
+    for n in range(1, number):
+        for multiple_of_n in range(n, number, n):
+            divisor_lists[multiple_of_n].append(n)
+
+    return divisor_lists
 
 def hexagonal_number(n: int) -> int:
     """Calculates the n'th hexagonal number"""
