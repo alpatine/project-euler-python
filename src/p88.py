@@ -2,9 +2,13 @@ from number_theory import divisors_to
 
 type DivisorLists = dict[int, list[int]]
 
-def factorise(n: int, max_factor: int, divisor_lists: DivisorLists) -> list[list[int]]:
+def factorise(n: int, max_factor: int, divisor_lists: DivisorLists, memo = {}) -> list[list[int]]:
     if n == 1:
         return [[]]
+
+    key = (n, max_factor)
+    if key in memo:
+        return memo[key]
 
     result = []
     for factor in reversed(divisor_lists[n]):
@@ -16,6 +20,7 @@ def factorise(n: int, max_factor: int, divisor_lists: DivisorLists) -> list[list
         for sub_factorisation in factorise(next_n, factor, divisor_lists):
             result.append(factorisation + sub_factorisation)
 
+    memo[key] = result
     return result
 
 def p88(max_set_size: int) -> int:
