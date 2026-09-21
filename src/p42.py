@@ -1,5 +1,5 @@
 from number_theory import is_triangle_number
-from number_words import word_score
+from writing import word_score
 
 
 def p42() -> int:

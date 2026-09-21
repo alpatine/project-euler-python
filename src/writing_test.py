@@ -1,5 +1,5 @@
 from unittest import TestCase
-from number_words import number_to_words, word_score
+from writing import number_to_words, word_score
 
 class Number_To_Words_Test(TestCase):
     def test_ones(self):

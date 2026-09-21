@@ -1,4 +1,4 @@
-from number_words import number_to_words
+from writing import number_to_words
 
 def p17(stop: int) -> int:
     return sum([len(number_to_words(n)) for n in range (1, stop)])
