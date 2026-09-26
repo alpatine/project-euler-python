@@ -1,3 +1,64 @@
+class RomanNumerals():
+    SUBTRACTIONS = {
+        'IV': 4,
+        'IX': 9,
+        'XL': 40,
+        'XC': 90,
+        'CD': 400,
+        'CM': 900,
+    }
+
+    NUMERALS = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    }
+
+    THRESHOLDS = [
+            (1000, 'M'),
+            (900, 'CM'),
+            (500, 'D'),
+            (400, 'CD'),
+            (100, 'C'),
+            (90, 'XC'),
+            (50, 'L'),
+            (40, 'XL'),
+            (10, 'X'),
+            (9, 'IX'),
+            (5, 'V'),
+            (4, 'IV'),
+            (1, 'I')
+    ]
+
+    def __init__(self: RomanNumerals):
+        self.value = None
+        pass
+
+    def set_str(self: RomanNumerals, input: str) -> int:
+        pos = 0
+        total = 0
+        for threshold, string in self.THRESHOLDS:
+            while input.startswith(string, pos):
+                total += threshold
+                pos += len(string)
+        self.value = total
+        return total
+
+    def shortest_str(self: RomanNumerals) -> str:
+        working = self.value
+        result = []
+
+        for threshold, output in self.THRESHOLDS:
+            while working >= threshold:
+                result.append(output)
+                working -= threshold
+
+        return ''.join(result)
+
 def number_to_words(number: int) -> str:
     """Convert a number into words
 

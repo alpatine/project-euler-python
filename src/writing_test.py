@@ -1,5 +1,7 @@
 from unittest import TestCase
-from writing import number_to_words, word_score
+
+from writing import RomanNumerals, number_to_words, word_score
+
 
 class Number_To_Words_Test(TestCase):
     def test_ones(self):
@@ -55,6 +57,52 @@ class Number_To_Words_Test(TestCase):
         self.assertEqual(number_to_words(507), 'fivehundredandseven')
         self.assertEqual(number_to_words(314), 'threehundredandfourteen')
         self.assertEqual(number_to_words(825), 'eighthundredandtwentyfive')
+
+class Roman_Numerals_Test(TestCase):
+    def test_set_I(self):
+        rn = RomanNumerals()
+        rn.set_str('I')
+        self.assertEqual(rn.value, 1)
+
+    def test_set_IV(self):
+        rn = RomanNumerals()
+        rn.set_str('IV')
+        self.assertEqual(rn.value, 4)
+
+    def test_set_VIII(self):
+        rn = RomanNumerals()
+        rn.set_str('VIII')
+        self.assertEqual(rn.value, 8)
+
+    def test_set_XLIX(self):
+        rn = RomanNumerals()
+        rn.set_str('XLIX')
+        self.assertEqual(rn.value, 49)
+
+    def test_set_XLVIIII(self):
+        rn = RomanNumerals()
+        rn.set_str('XLIX')
+        self.assertEqual(rn.value, 49)
+
+    def test_set_MCMXCVIII(self):
+        rn = RomanNumerals()
+        rn.set_str('MCMXCVIII')
+        self.assertEqual(rn.value, 1998)
+
+    def test_shortest_1(self):
+        rn = RomanNumerals()
+        rn.value = 1
+        self.assertEqual(rn.shortest_str(), 'I')
+
+    def test_shortest_4(self):
+        rn = RomanNumerals()
+        rn.value = 4
+        self.assertEqual(rn.shortest_str(), 'IV')
+
+    def test_shortest_999(self):
+        rn = RomanNumerals()
+        rn.value = 999
+        self.assertEqual(rn.shortest_str(), 'CMXCIX')
 
 class Word_Score_Test(TestCase):
     def test_A(self):
